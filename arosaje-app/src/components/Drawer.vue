@@ -5,8 +5,7 @@
       <v-subheader>MENU</v-subheader>
       <v-list-item-group
         v-model="selectedItem"
-        color="primary"
-      >
+        color="primary">
         <v-list-item
           v-for="(item, i) in items" :to="item.action" :key="i">
           <v-list-item-icon>
