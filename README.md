@@ -8,7 +8,7 @@ Abdou KANDJI
 
 Oumy THIAM
 
-Oumou Gueye
+Oumou GUEYE
 
 Frank NDANDJI
 
