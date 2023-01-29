@@ -1,0 +1,6 @@
+{
+  "appId": "com.kandjiabdou.app",
+  "appName": "cliff-height-timer",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
