@@ -32,7 +32,7 @@ export default {
         {
           icon: "flower",
           text: this.$t("drawer.mesgardiennage"),
-          action: "/mesgardiennage",
+          action: "/gardiennage",
         },
         {
           icon: "message",
@@ -41,6 +41,7 @@ export default {
         },
         { icon: "account", text: this.$t("drawer.compte"), action: "/compte" },
         { icon: "logout", text: this.$t("drawer.logout"), action: "/logout" },
+        
       ],
     };
   },
