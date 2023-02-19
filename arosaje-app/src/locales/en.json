@@ -9,6 +9,12 @@
     "mesgardiennage": "Mes gardinnages",
     "message": "Mes messages",
     "compte": "Mon compte",
-    "logout": "Se déconnecter"
+    "logout": "Se déconnecter",
+    "items":{
+      
+    }
+
+    
   }
+  
 }
