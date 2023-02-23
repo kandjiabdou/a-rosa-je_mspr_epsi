@@ -1,6 +1,5 @@
 const { PrismaClient, Prisma } = require('@prisma/client')
 const prisma = new PrismaClient();
-// const bcrypt = require('bcryptjs');
 const express = require("express");
 const app = express()
 
@@ -28,6 +27,9 @@ const getAllUser = async (req, res, next) => {
         "count": users.length,
         "users" : users
     })
+};
+const errorResponse = (status, message) => {
+    return {"status" : status, "message" : message};
 };
 
 module.exports = {

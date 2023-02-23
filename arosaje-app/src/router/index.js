@@ -1,10 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-<<<<<<< HEAD
 import monCompte from '../views/MoncompteView.vue'
-=======
 import GardiennageView from '@/views/GardiennageView.vue'
->>>>>>> b06d1d1d717af0cf9590a44565fe4d7aabf982fe
 
 const routes = [
   {
