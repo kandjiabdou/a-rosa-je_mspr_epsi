@@ -13,6 +13,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 router.get('/annonce', annonceController.getAllAnnonce );
 router.get('/annonce/:id', annonceController.getAnnonce );
+router.get('/annonce/user/:id', annonceController.getALLAnnonceByUser );
+router.get('/filter/annonce', annonceController.getAllAnnonceByFilter );
 
 router.post('/annonce', upload.array(), annonceController.createAnnonce );
 

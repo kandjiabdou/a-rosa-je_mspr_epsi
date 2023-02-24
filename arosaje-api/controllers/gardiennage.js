@@ -15,7 +15,7 @@ const getGardiennage = async (req, res, next) => {
     }
     return res.status(200).json({
         sucess: true,
-        Gardiennage
+        gardiennage
     })
 };
 
@@ -30,7 +30,7 @@ const getAllGardiennage = async (req, res, next) => {
 };
 
 const getAllGardiennageByUser = async (req, res, next) => {
-    if(! req.params.id) return res.json(errorResponse("Veuillez donnez l'id de l'photo", 400))
+    if(! req.params.id) return res.json(errorResponse("Veuillez donnez l'id du user", 400))
     const gardiennages = await prisma.Gardiennage.findMany({
         where: { id_user: parseInt(req.params.id) },
         include:{
@@ -43,7 +43,7 @@ const getAllGardiennageByUser = async (req, res, next) => {
         return res.json(errorResponse("Aucune gardiennage trouvée", 400))
     }
     return res.status(200).json({
-        sucess: true,
+        "count": gardiennages.length,
         gardiennages
     })
 };
@@ -78,6 +78,6 @@ const errorResponse = (status, message) => {
 module.exports = {
     getAllGardiennage,
     getGardiennage,
-    createGardiennage,
-    getAllGardiennageByUser
+    getAllGardiennageByUser,
+    createGardiennage
 };

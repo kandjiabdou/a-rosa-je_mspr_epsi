@@ -7,7 +7,7 @@ app.use(express.json())
 
 
 const getAnnonce = async (req, res, next) => {
-    if(! req.params.id) return res.json(errorResponse("Veuillez donnez l'id de l'annonce", 400))
+    if(isNaN(req.params.id)) return res.json(errorResponse("Veuillez donnez l'id de l'annonce", 400))
     const annonce = await prisma.Annonce.findUnique({
         where: { id_annonce: parseInt(req.params.id) }
     })
@@ -27,6 +27,40 @@ const getAllAnnonce = async (req, res, next) => {
     res.status(200).json({
         "count": annonces.length,
         "annonces": annonces
+    })
+};
+
+const getAllAnnonceByFilter = async (req, res, next) => {
+    const filter = req.query;
+    console.log(filter)
+    if (filter.type_gardien) filter.type_gardien = parseInt(filter.type_gardien)
+    if (filter.id_user) filter.id_user = parseInt(filter.id_user)
+    const annonces = await prisma.Annonce.findMany({
+        where: filter
+    })
+    console.log("ok")
+    res.status(200).json({
+        "count": annonces.length,
+        "annonces": annonces
+    })
+};
+
+const getALLAnnonceByUser = async (req, res, next) => {
+    if(! req.params.id) return res.json(errorResponse("Veuillez donnez l'id du user", 400))
+    const annonces = await prisma.Annonce.findMany({
+        where: { id_user: parseInt(req.params.id) },
+        include:{
+            photo : {
+                where: { idAnnonce: this.id_annonce }
+            }
+        }
+    })
+    if (!annonces) {
+        return res.json(errorResponse("Aucune annonce trouvée pour cette utlisateur", 400))
+    }
+    return res.status(200).json({
+        "count": annonces.length,
+        annonces
     })
 };
 
@@ -62,5 +96,7 @@ const errorResponse = (status, message) => {
 module.exports = {
     getAllAnnonce,
     getAnnonce,
+    getALLAnnonceByUser,
+    getAllAnnonceByFilter,
     createAnnonce
 };
