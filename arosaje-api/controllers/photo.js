@@ -51,24 +51,29 @@ const getPhotoGardiennageId = async (req, res, next) => {
     })
 };
 
-const createPhoto = async (req, res, next) => {
+const getPhotoAnnonceId = async (req, res, next) => {
+    if(! req.params.id) return res.json(errorResponse("Veuillez donnez l'id de l'photo", 400))
+    const photos = await prisma.PhotoAnnonce.findMany({
+        where: { idAnnonce: parseInt(req.params.id) }
+    })
+    if (!photos) {
+        return res.json(errorResponse("Aucune photo d'annonce trouvée", 400))
+    }
+    return res.status(200).json({
+        sucess: true,
+        photos
+    })
+};
+
+const createPhotoGardiennage = async (req, res, next) => {
     const rBody = req.body
-    var data_photo = {
-        lien : rBody.lien,
-        date_photo : new Date(rBody.date_photo)
-    }
-    var prismaModel;
-    if (rBody.photoAnnonce){
-        prismaModel = prisma.PhotoAnnonce;
-        data_photo['idAnnonce'] = parseInt(rBody.idAnnonce);
-    } else{
-        prismaModel = prisma.PhotoGardiennage;
-        data_photo['idGardiennage'] = parseInt(rBody.idGardiennage);
-    }
-    console.log("data",rBody)
     try {
-        const photo = await prismaModel.create({
-            data: data_photo
+        const photo = await prisma.PhotoGardiennage.create({
+            data: {
+                lien : rBody.lien,
+                date_photo : new Date(rBody.date_photo),
+                idGardiennage : parseInt(rBody.idGardiennage)
+            }
         })
         res.status(201).json({
             success: true,
@@ -77,7 +82,28 @@ const createPhoto = async (req, res, next) => {
 
     } catch (error) {
         console.log(error);
-        return res.json(errorResponse("Erreur de création d'photo", 400))
+        return res.json(errorResponse("Erreur de création d'photo de gardiennage", 400))
+    }
+}
+
+const createPhotoAnnonce = async (req, res, next) => {
+    const rBody = req.body
+    try {
+        const photo = await prisma.PhotoAnnonce.create({
+            data: {
+                lien : rBody.lien,
+                date_photo : new Date(rBody.date_photo),
+                idAnnonce : parseInt(rBody.idAnnonce)
+            }
+        })
+        res.status(201).json({
+            success: true,
+            photo
+        })
+
+    } catch (error) {
+        console.log(error);
+        return res.json(errorResponse("Erreur de création d'photo de gardiennage", 400))
     }
 }
 const errorResponse = (status, message) => {
@@ -86,8 +112,10 @@ const errorResponse = (status, message) => {
 
 module.exports = {
     getAllPhotoAnnonce,
+    getPhotoAnnonceId,
     getAllPhotoGardiennage,
     getPhotoGardiennageId,
     getPhoto,
-    createPhoto
+    createPhotoAnnonce,
+    createPhotoGardiennage
 };

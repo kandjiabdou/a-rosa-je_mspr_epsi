@@ -11,7 +11,6 @@ const routes = [
     component: HomeView
   },
   {
-
     path: '/compte',
     name: 'mon compte',
     component: monCompte

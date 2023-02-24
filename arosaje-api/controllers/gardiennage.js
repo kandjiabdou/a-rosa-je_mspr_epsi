@@ -32,31 +32,20 @@ const getAllGardiennage = async (req, res, next) => {
 const getAllGardiennageByUser = async (req, res, next) => {
     if(! req.params.id) return res.json(errorResponse("Veuillez donnez l'id de l'photo", 400))
     const gardiennages = await prisma.Gardiennage.findMany({
-        where: { id_user: parseInt(req.params.id) }
+        where: { id_user: parseInt(req.params.id) },
+        include:{
+            photo_gardiennage : {
+                where: { idGardiennage: this.id_gardiennage }
+            }
+        }
     })
     if (!gardiennages) {
         return res.json(errorResponse("Aucune gardiennage trouvée", 400))
     }
-    // gardiennages.forEach(async gardiennage => {
-    //     // console.log(gardiennage["id_gardiennage"]);
-    //     await gardiennage["photos"] = await getPhotoIdGardiennage(gardiennage["id_gardiennage"]);
-    // });
     return res.status(200).json({
         sucess: true,
         gardiennages
     })
-};
-const getPhotoIdGardiennage = async (id) => {
-    console.log("gardiennage",id);
-    if(! id) return res.json(errorResponse("Veuillez donnez l'id de l'photo", 400))
-    const photos = await prisma.PhotoGardiennage.findMany({
-        where: { idGardiennage: parseInt(id) }
-    })
-    if (!photos) {
-        return errorResponse("Aucune photo trouvée", 400)
-    }
-    console.log("photo gar",photos)
-    return photos
 };
 
 const createGardiennage = async (req, res, next) => {

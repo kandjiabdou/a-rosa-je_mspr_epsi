@@ -12,9 +12,11 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 router.get('/photo/annonce', photoController.getAllPhotoAnnonce );
+router.get('/photo/annonce/:id', photoController.getPhotoAnnonceId );
 router.get('/photo/gardiennage', photoController.getAllPhotoGardiennage );
 router.get('/photo/gardiennage/:id', photoController.getPhotoGardiennageId );
 
-router.post('/photo', upload.array(), photoController.createPhoto );
+router.post('/photo/annonce', upload.array(), photoController.createPhotoAnnonce );
+router.post('/photo/gardiennage', upload.array(), photoController.createPhotoGardiennage );
 
 module.exports = router; // export to use in api.js
