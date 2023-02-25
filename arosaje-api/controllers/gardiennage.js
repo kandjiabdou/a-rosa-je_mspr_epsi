@@ -11,7 +11,7 @@ const getGardiennage = async (req, res, next) => {
         where: { id_gardiennage: parseInt(req.params.id) }
     })
     if (!gardiennage) {
-        return res.json(errorResponse("Aucune Gardiennage trouvée", 400))
+        return res.json(errorResponse("Aucun Gardiennage trouvé", 400))
     }
     return res.status(200).json({
         sucess: true,
@@ -38,7 +38,7 @@ const getAllGardiennageByUser = async (req, res, next) => {
         }
     })
     if (!gardiennages) {
-        return res.json(errorResponse("Aucune gardiennage trouvée", 400))
+        return res.json(errorResponse("Aucun gardiennage trouvé", 400))
     }
     return res.status(200).json({
         "count": gardiennages.length,
@@ -71,7 +71,7 @@ const createGardiennage = async (req, res, next) => {
             }
         }
         console.log(error);
-        return res.json(errorResponse("Erreur de création d'Gardiennage", 400))
+        return res.json(errorResponse("Erreur de création d'un gardiennage", 400))
     }
 }
 
