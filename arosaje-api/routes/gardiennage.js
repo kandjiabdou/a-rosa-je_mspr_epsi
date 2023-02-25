@@ -16,5 +16,6 @@ router.get('/gardiennage/:id', gardiennageController.getGardiennage );
 router.get('/gardiennage/user/:id', gardiennageController.getAllGardiennageByUser );
 
 router.post('/gardiennage', upload.array(), gardiennageController.createGardiennage );
+router.delete('/gardiennage/:idUser/:idAnnonce', gardiennageController.deleteGardienngaeIdUserIdGar );
 
 module.exports = router; // export to use in api.js

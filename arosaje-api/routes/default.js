@@ -13,5 +13,11 @@ router.post('*', function(req, res){
         "message":"The route POST '"+req.url+"' doesn't exist",
     })
 });
+router.delete('*', function(req, res){
+    res.json({
+        "error" : "404",
+        "message":"The route DELETE '"+req.url+"' doesn't exist",
+    })
+});
 
 module.exports = router; // export to use in main.js
