@@ -1,0 +1,894 @@
+{
+	"info": {
+		"_postman_id": "966604a3-a870-4a7b-8812-e04651992461",
+		"name": "arosaje-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "25489490"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "james@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "mdp",
+							"value": "pokjnaoeuhfqfqsd",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:3000/login"
+			},
+			"response": []
+		},
+		{
+			"name": "signup user frank",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "prenom",
+							"value": "Frank",
+							"type": "text"
+						},
+						{
+							"key": "nom",
+							"value": "Under",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "frank@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "mdp",
+							"value": "12345678",
+							"type": "text"
+						},
+						{
+							"key": "telephone",
+							"value": "07234877",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:3000/signup"
+			},
+			"response": []
+		},
+		{
+			"name": "signup user lebron",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "prenom",
+							"value": "LeBron",
+							"type": "text"
+						},
+						{
+							"key": "nom",
+							"value": "James",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "james@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "mdp",
+							"value": "james123",
+							"type": "text"
+						},
+						{
+							"key": "telephone",
+							"value": "07584923",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:3000/signup"
+			},
+			"response": []
+		},
+		{
+			"name": "signup user angelina",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "prenom",
+							"value": "LeBron",
+							"type": "text"
+						},
+						{
+							"key": "nom",
+							"value": "James",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "james@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "mdp",
+							"value": "james123",
+							"type": "text"
+						},
+						{
+							"key": "telephone",
+							"value": "07584923",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:3000/signup"
+			},
+			"response": []
+		},
+		{
+			"name": "signup user Messi",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "prenom",
+							"value": "LeBron",
+							"type": "text"
+						},
+						{
+							"key": "nom",
+							"value": "James",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "james@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "mdp",
+							"value": "james123",
+							"type": "text"
+						},
+						{
+							"key": "telephone",
+							"value": "07584923",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:3000/signup"
+			},
+			"response": []
+		},
+		{
+			"name": "signup user Yaye",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "prenom",
+							"value": "LeBron",
+							"type": "text"
+						},
+						{
+							"key": "nom",
+							"value": "James",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "james@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "mdp",
+							"value": "james123",
+							"type": "text"
+						},
+						{
+							"key": "telephone",
+							"value": "07584923",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:3000/signup"
+			},
+			"response": []
+		},
+		{
+			"name": "signup user kardashien",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "prenom",
+							"value": "LeBron",
+							"type": "text"
+						},
+						{
+							"key": "nom",
+							"value": "James",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "james@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "mdp",
+							"value": "james123",
+							"type": "text"
+						},
+						{
+							"key": "telephone",
+							"value": "07584923",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:3000/signup"
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "user-all-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/user"
+			},
+			"response": []
+		},
+		{
+			"name": "user-get ID",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "req-404",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "update password",
+			"request": {
+				"method": "DELETE",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "create-annonce1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "localisation",
+							"value": "Paris",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "J'ai trois plante à faire garder, j'habite à Paris.\nJe pars en vacances pour une semaine.\nJe voudrai etre en contact avec quelqu'un qui pourra\ngarder mes plantes durant cette durée.\ndate de début 12/03/2023",
+							"type": "text"
+						},
+						{
+							"key": "type_gardien",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "latidute",
+							"value": "48.87295279",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "2.366205411",
+							"type": "text"
+						},
+						{
+							"key": "id_user",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:3000/annonce"
+			},
+			"response": []
+		},
+		{
+			"name": "create-annonce2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "localisation",
+							"value": "Orsay",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Bonjour,\nGarder mes plantes, j'habite à Orsay.\nJe pars en vacances pour une semaine.\nJe voudrai etre en contact avec quelqu'un qui pourra\ngarder mes plantes durant cette durée.\ndate de début 12/03/2023",
+							"type": "text"
+						},
+						{
+							"key": "type_gardien",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "latidute",
+							"value": "48.800331894",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "2.261726973",
+							"type": "text"
+						},
+						{
+							"key": "id_user",
+							"value": "6",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:3000/annonce"
+			},
+			"response": []
+		},
+		{
+			"name": "create-annonce3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "localisation",
+							"value": "Puteaux",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Hello,\nJe pars en vacances pour une semaine.\nJe voudrai etre en contact avec quelqu'un qui pourra\ngarder mes plantes durant cette durée.\ndate de début 12/03/2023",
+							"type": "text"
+						},
+						{
+							"key": "type_gardien",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "latidute",
+							"value": "48.872952798",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "2.235929783",
+							"type": "text"
+						},
+						{
+							"key": "id_user",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:3000/annonce"
+			},
+			"response": []
+		},
+		{
+			"name": "create-annonce4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "localisation",
+							"value": "Puteaux",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Hello,\nJe pars en vacances pour une semaine.\nJe voudrai etre en contact avec quelqu'un qui pourra\ngarder mes plantes durant cette durée.\ndate de début 12/03/2023",
+							"type": "text"
+						},
+						{
+							"key": "type_gardien",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "latidute",
+							"value": "48.872952798",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "2.235929783",
+							"type": "text"
+						},
+						{
+							"key": "id_user",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:3000/annonce"
+			},
+			"response": []
+		},
+		{
+			"name": "create-annonce6",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "localisation",
+							"value": "Puteaux",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Hello,\nJe pars en vacances pour une semaine.\nJe voudrai etre en contact avec quelqu'un qui pourra\ngarder mes plantes durant cette durée.\ndate de début 12/03/2023",
+							"type": "text"
+						},
+						{
+							"key": "type_gardien",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "latidute",
+							"value": "48.872952798",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "2.235929783",
+							"type": "text"
+						},
+						{
+							"key": "id_user",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:3000/annonce"
+			},
+			"response": []
+		},
+		{
+			"name": "get-all-annonces",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/annonce"
+			},
+			"response": []
+		},
+		{
+			"name": "get-all-annonces-ByFilter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/annonce/filter"
+			},
+			"response": []
+		},
+		{
+			"name": "get-one-annonce",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/annonce/1"
+			},
+			"response": []
+		},
+		{
+			"name": "get-all-AnnonceByUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/annonce/user/4"
+			},
+			"response": []
+		},
+		{
+			"name": "create-gardiannage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "description",
+							"value": "Responsable de l'entretien des parties communes, de la sortie des poubelles et de la petite maintenance (changer des ampoules…) et éventuellement du chauffage. Il surveille les bâtiments et les espaces communs ainsi que les équipements avec application des règles de sécurité.",
+							"type": "text"
+						},
+						{
+							"key": "id_user",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "date_debut",
+							"value": "01/02/2023",
+							"type": "text"
+						},
+						{
+							"key": "date_fin",
+							"value": "02/02/2023",
+							"type": "text"
+						},
+						{
+							"key": "id_annonce",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:3000/gardiennage"
+			},
+			"response": []
+		},
+		{
+			"name": "create-gardiannage2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "description",
+							"value": "Responsable de l'entretien des parties communes, de la sortie des poubelles et de la petite maintenance (changer des ampoules…) et éventuellement du chauffage. Il surveille les bâtiments et les espaces communs ainsi que les équipements avec application des règles de sécurité.",
+							"type": "text"
+						},
+						{
+							"key": "id_user",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "date_debut",
+							"value": "01/02/2023",
+							"type": "text"
+						},
+						{
+							"key": "date_fin",
+							"value": "02/02/2023",
+							"type": "text"
+						},
+						{
+							"key": "id_annonce",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": "http://localhost:3000/gardiennage"
+			},
+			"response": []
+		},
+		{
+			"name": "create-gardiannage3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "description",
+							"value": "Responsable de l'entretien des parties communes, de la sortie des poubelles et de la petite maintenance (changer des ampoules…) et éventuellement du chauffage. Il surveille les bâtiments et les espaces communs ainsi que les équipements avec application des règles de sécurité.",
+							"type": "text"
+						},
+						{
+							"key": "id_user",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "date_debut",
+							"value": "01/02/2023",
+							"type": "text"
+						},
+						{
+							"key": "date_fin",
+							"value": "02/02/2023",
+							"type": "text"
+						},
+						{
+							"key": "id_annonce",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": "http://localhost:3000/gardiennage"
+			},
+			"response": []
+		},
+		{
+			"name": "create-gardiannage4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "description",
+							"value": "Responsable de l'entretien des parties communes, de la sortie des poubelles et de la petite maintenance (changer des ampoules…) et éventuellement du chauffage. Il surveille les bâtiments et les espaces communs ainsi que les équipements avec application des règles de sécurité.",
+							"type": "text"
+						},
+						{
+							"key": "id_user",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "date_debut",
+							"value": "01/02/2023",
+							"type": "text"
+						},
+						{
+							"key": "date_fin",
+							"value": "02/02/2023",
+							"type": "text"
+						},
+						{
+							"key": "id_annonce",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": "http://localhost:3000/gardiennage"
+			},
+			"response": []
+		},
+		{
+			"name": "create-gardiannage5",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "description",
+							"value": "Responsable de l'entretien des parties communes, de la sortie des poubelles et de la petite maintenance (changer des ampoules…) et éventuellement du chauffage. Il surveille les bâtiments et les espaces communs ainsi que les équipements avec application des règles de sécurité.",
+							"type": "text"
+						},
+						{
+							"key": "id_user",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "date_debut",
+							"value": "01/02/2023",
+							"type": "text"
+						},
+						{
+							"key": "date_fin",
+							"value": "02/02/2023",
+							"type": "text"
+						},
+						{
+							"key": "id_annonce",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": "http://localhost:3000/gardiennage"
+			},
+			"response": []
+		},
+		{
+			"name": "get-all-gardiennage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/gardiennage"
+			},
+			"response": []
+		},
+		{
+			"name": "get-one-gardiennage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/gardiennage"
+			},
+			"response": []
+		},
+		{
+			"name": "get-all-GardiennageByUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/gardiennage/user/4"
+			},
+			"response": []
+		},
+		{
+			"name": "create-photo-gardiennage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "lien",
+							"value": "imaga/gardiennage/photo3.png",
+							"type": "text"
+						},
+						{
+							"key": "date_photo",
+							"value": "02/20/2023",
+							"type": "text"
+						},
+						{
+							"key": "idGardiennage",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:3000/photo/gardiennage"
+			},
+			"response": []
+		},
+		{
+			"name": "get-All-photo-Gardiennage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/photo/gardiennage"
+			},
+			"response": []
+		},
+		{
+			"name": "get-photo-by-ID-Gardiennage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/photo/gardiennage"
+			},
+			"response": []
+		},
+		{
+			"name": "create-photo-annonce",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "lien",
+							"value": "imaga/annonce/photo1.png",
+							"type": "text"
+						},
+						{
+							"key": "date_photo",
+							"value": "02/20/2023",
+							"type": "text"
+						},
+						{
+							"key": "idAnnonce",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:3000/photo/annonce"
+			},
+			"response": []
+		},
+		{
+			"name": "get-All-photo-annonce",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/photo/gardiennage"
+			},
+			"response": []
+		},
+		{
+			"name": "get-photo-by-ID-Gardiennage Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/photo/gardiennage"
+			},
+			"response": []
+		},
+		{
+			"name": "delete-one-gardiennage-byUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:3000/gardiennage/4/5"
+			},
+			"response": []
+		}
+	]
+}
