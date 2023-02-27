@@ -12,59 +12,64 @@
             title="John Leider"
             nav
         >
-          <template v-slot:append>
+
             <v-btn
                 variant="text"
                 icon="mdi-chevron-left"
                 @click.stop="rail = !rail"
             ></v-btn>
-          </template>
+
         </v-list-item>
 
         <v-divider></v-divider>
 
-        <v-list density="compact" nav>
-          <v-list-item prepend-icon="mdi-home-city" title="Home" value="home"></v-list-item>
-          <v-list-item prepend-icon="mdi-account" title="My Account" value="account"></v-list-item>
-          <v-list-item prepend-icon="mdi-account-group-outline" title="Users" value="users"></v-list-item>
-        </v-list>
+        <v-list-item v-for="(item, i) in items" :to="item.action" :key="i">
+
+          <v-list-item-content class="menu">
+            <v-list-item-icon class="menu_icon">
+              <v-icon>mdi-{{ item.icon }}</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title v-text="item.text" class="menu_item"></v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
       </v-navigation-drawer>
-      <v-main style="height: 250px"></v-main>
+
     </v-layout>
   </v-card>
 </template>
 
+
 <script>
-export default {
-  data() {
+  export default {
+  data () {
+  return {
+  drawer: true,
+    items: [
+      { icon: "home", text: this.$t("drawer.home"), action: "/" },
+      {
+        icon: "leaf",
+        text: this.$t("drawer.dgardiennage"),
+        action: "/dgardiennage",
+      },
+      { icon: "tree", text: this.$t("drawer.gdemande"), action: "/gdemande" },
+      {
+        icon: "flower",
+        text: this.$t("drawer.mesgardiennage"),
+        action: "/gardiennage",
+      },
+      {
+        icon: "message",
+        text: this.$t("drawer.message"),
+        action: "/message",
+      },
+      { icon: "account", text: this.$t("drawer.compte"), action: "/compte" },
+      { icon: "logout", text: this.$t("drawer.logout"), action: "/logout" },
 
-    return {
-      items: [
-        { icon: "home", text: this.$t("drawer.home"), action: "/" },
-        {
-          icon: "leaf",
-          text: this.$t("drawer.dgardiennage"),
-          action: "/dgardiennage",
-        },
-        { icon: "tree", text: this.$t("drawer.gdemande"), action: "/gdemande" },
-        {
-          icon: "flower",
-          text: this.$t("drawer.mesgardiennage"),
-          action: "/gardiennage",
-        },
-        {
-          icon: "message",
-          text: this.$t("drawer.message"),
-          action: "/message",
-        },
-        { icon: "account", text: this.$t("drawer.compte"), action: "/compte" },
-        { icon: "logout", text: this.$t("drawer.logout"), action: "/logout" },
+    ],
 
-      ],
-
-    };
-  },
-
-
+  rail: true,
+}
+},
 }
 </script>

@@ -119,9 +119,7 @@ export default {
 .contenu{
   width:300px
 }
-.post{
-  margin-top: 70px;
-}
+
 #actu{
  width:600px;
 }
