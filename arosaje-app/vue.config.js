@@ -3,15 +3,32 @@ module.exports = defineConfig({
   transpileDependencies: true,
 
   pluginOptions: {
-    vuetify: {},
     i18n: {
       locale: 'en',
       fallbackLocale: 'en',
       localeDir: 'locales',
-      enableLegacy: false,
+      enableLegacy: true,
       runtimeOnly: false,
-      compositionOnly: false,
+      compositionOnly: true,
       fullInstall: true
     }
   }
 })
+
+module.exports = {
+  transpileDependencies: [
+    'vuetify'
+  ],
+
+  pluginOptions: {
+    i18n: {
+      locale: 'en',
+      fallbackLocale: 'en',
+      localeDir: 'locales',
+      enableLegacy: true,
+      runtimeOnly: false,
+      compositionOnly: true,
+      fullInstall: true
+    }
+  }
+}

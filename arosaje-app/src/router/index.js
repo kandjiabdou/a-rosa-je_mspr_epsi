@@ -1,12 +1,32 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import RegisterView from "@/views/RegisterView.vue"
+import HomeComponent from "@/views/HomeComponent.vue"
+
 
 const routes = [
+
   {
-    path: '/',
+    path: '/register',
+    name: 'RegisterView',
+    component: RegisterView
+  },
+  {
+    path: '/home',
     name: 'home',
-    component: HomeView
-  }
+    component: HomeComponent
+  },
+  {
+    path: '/profil',
+    name: 'myContentDrawer',
+    component: () => import('../views/ProfilView.vue')
+  },
+
+  {
+    path: '/demande-gardinnage',
+    name: 'DemandeGardinnage',
+    component: () => import('../views/DemandeGardinnage.vue')
+  },
+
 ]
 
 const router = createRouter({

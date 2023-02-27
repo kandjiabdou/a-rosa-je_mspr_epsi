@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import myContentDrawer from "@/components/Drawer"
+import myContentDrawer from "@/components/DrawerComponent.vue"
 export default {
   name: 'moncompte',
   components: {myContentDrawer},

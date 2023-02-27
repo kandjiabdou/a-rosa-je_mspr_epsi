@@ -1,18 +1,115 @@
 <template>
-  <v-app>
-    <myToolbar />
-    <v-main>
-      <v-slide-y-transition mode="out-in">
-        <router-view />
-      </v-slide-y-transition>
-    </v-main>
-  </v-app>
+  <div id="app">
+    <v-toolbar class="side fixed-bar" >
+
+      <v-layout>
+        <v-app-bar
+            color="black"
+            prominent
+        >
+
+
+          <v-img src="public/assets/logo.png" alt="logo"/>
+
+        <li v-if="showAdminBoard" class="nav-item">
+          <router-link to="/admin" class="nav-link">Admin Board</router-link>
+        </li>
+        <li v-if="showModeratorBoard" class="nav-item">
+          <router-link to="/mod" class="nav-link">Moderator Board</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link v-if="currentUser" to="/user" class="nav-link">User</router-link>
+        </li>
+
+
+
+      <div v-if="!currentUser" class="navbar-nav ml-auto">
+        <ul>
+          <li class="nav-item">
+            <router-link to="/home" class="nav-link">
+              <i class="fas fa-home"></i> Home
+            </router-link>
+          </li>
+        <li class="nav-item">
+          <router-link to="/register" class="nav-link">
+            <i class="fas fa-user-alt"></i>   Connexion
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/register" class="nav-link">
+           <i class="fas fa-sign-in-alt"></i>  Inscription
+          </router-link>
+        </li>
+        </ul>
+      </div>
+
+      <div v-if="currentUser" class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <router-link to="/profile" class="nav-link">
+            <i class="fas fa-user"></i>
+            {{ currentUser.username }}
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" @click.prevent="logOut">
+            <font-awesome-icon icon="sign-out-alt" /> LogOut
+          </a>
+        </li>
+      </div>
+        </v-app-bar>
+      </v-layout>
+    </v-toolbar>
+
+
+    <div class="container">
+      <router-view />
+    </div>
+
+  </div>
 </template>
 
 <script>
-import myToolbar from "@/components/MyToolbar";
-export default {
-  name: "app",
-  components: { myToolbar },
-};
+
+
+import {defineComponent} from "vue";
+import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
+
+export default defineComponent({
+  components: {FontAwesomeIcon}
+})
 </script>
+
+<style>
+
+.sidenav {
+  height: 100%;
+  width:100%;
+  z-index: 1;
+  top: 0;
+  background-color: black;
+  transition: left 0.5s ease;
+
+
+}
+
+
+ul{
+  margin-top: 10px;
+  display:flex;
+  justify-content: space-evenly;
+
+}
+li{
+
+  padding: 10px;
+  list-style: none;
+  text-decoration: none;
+}
+
+a{
+  color:white;
+  text-decoration: none;
+}
+
+
+</style>

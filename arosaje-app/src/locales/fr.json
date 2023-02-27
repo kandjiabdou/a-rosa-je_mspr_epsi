@@ -1,5 +1,7 @@
 {
   "title" : "Arosaje",
+  "home_title": "Arosaje",
+  "home_text": "L’application doit permettre à un utilisateur de faire garder ses plantes par un autre. \nPour cela elle donne la possibilité à cet utilisateur de prendre en photo les plantes qu’il souhaite faire \ngarder. \nCette photo permet à des botanistes (ou un modèle d’apprentissage automatique) de fournir les \nconseils les plus appropriés à l’utilisateur qui gardera les plantes, afin de s’assurer que les plantes \ngardées sont en bon état lorsqu’un autre utilisateur s’en occupe. \nL’utilisateur gardant les plantes devra prendre des photos après chaque séance d’entretien. ",
   "about_title" : "A propos",
   "history_title" : "Historique",
   "manuel_title" : "Entrer manual un temps dans l'historique",

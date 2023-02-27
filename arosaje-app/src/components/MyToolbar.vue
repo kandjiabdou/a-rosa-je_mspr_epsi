@@ -6,7 +6,7 @@
     <v-app-bar dark color="green" clipped-left app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-avatar size="40">
-        <v-img src="../assets/logo.png"></v-img>
+        <v-img src="public/assets/logo.png"></v-img>
       </v-avatar>
       <v-toolbar-title @click="goHome" class="white--text">{{$t("title")}}</v-toolbar-title>
     </v-app-bar>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import myContentDrawer from "@/components/Drawer"
+import myContentDrawer from "@/components/DrawerComponent.vue"
 export default {
   name: 'myToolbar',
   components: {myContentDrawer},
