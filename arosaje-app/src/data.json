@@ -1,0 +1,143 @@
+
+{  
+    "liste":
+    [
+        {
+"id":1,
+"descriptif": "bfvf vfgtyr hruru hjfrufrii",
+"img":"assets/logo.png",
+"nom_proprietaire":"JE NE SQIS PA",
+ "adresse":{
+  "rue":" 3 Ruelle du Royaume",
+  "code_postale":"91440",
+  "ville":"Bures sur Yvettes"
+
+ },
+ "date_debut":"12-01-2020",
+ "date_fin":"15-01-2020"
+
+
+},
+
+{ "id":2,
+"img":"assets/logo.png",
+"descriptif": "Entretien de rose en l'absence su proprietaire pour une duree de 4 jours.",
+"nom_proprietaire":"Awa ly",
+ "adresse":{
+  "rue":" 3 Ruelle du Royaume",
+  "code_postale":"91440",
+  "ville":"Bures sur Yvettes"
+
+ },
+ "date_debut":"12-01-2020",
+ "date_fin":"15-01-2020"
+
+
+},
+{ "id":3,
+"img":"assets/logo.png",
+"descriptif": "Entretien de rose en l'absence su proprietaire pour une duree de 4 jours.",
+"nom_proprietaire":"Awa ly",
+ "adresse":{
+  "rue":" 3 Ruelle du Royaume",
+  "code_postale":"91440",
+  "ville":"Bures sur Yvettes"
+
+ },
+ "date_debut":"12-01-2020",
+ "date_fin":"15-01-2020"
+
+
+},
+{ "id":4,
+"img":"assets/logo.png",
+"descriptif": "Entretien de rose en l'absence su proprietaire pour une duree de 4 jours.",
+"nom_proprietaire":"Awa ly",
+ "adresse":{
+  "rue":" 3 Ruelle du Royaume",
+  "code_postale":"91440",
+  "ville":"Bures sur Yvettes"
+
+ },
+ "date_debut":"12-01-2020",
+ "date_fin":"15-01-2020"
+
+
+},
+{ "id":5,
+"img":"assets/logo.png",
+"descriptif": "Entretien de rose en l'absence su proprietaire pour une duree de 4 jours.",
+"nom_proprietaire":"Awa ly",
+ "adresse":{
+  "rue":" 3 Ruelle du Royaume",
+  "code_postale":"91440",
+  "ville":"Bures sur Yvettes"
+
+ },
+ "date_debut":"12-01-2020",
+ "date_fin":"15-01-2020"
+
+
+},
+{ "id":6,
+"img":"assets/logo.png",
+"descriptif": "Entretien de rose en l'absence su proprietaire pour une duree de 4 jours.",
+"nom_proprietaire":"Awa ly",
+ "adresse":{
+  "rue":" 3 Ruelle du Royaume",
+  "code_postale":"91440",
+  "ville":"Bures sur Yvettes"
+
+ },
+ "date_debut":"12-01-2020",
+ "date_fin":"15-01-2020"
+
+
+},
+{ "id":7,
+"img":"assets/logo.png",
+"descriptif": "Entretien de rose en l'absence su proprietaire pour une duree de 4 jours.",
+"nom_proprietaire":"Awa ly",
+ "adresse":{
+  "rue":" 3 Ruelle du Royaume",
+  "code_postale":"91440",
+  "ville":"Bures sur Yvettes"
+
+ },
+ "date_debut":"12-01-2020",
+ "date_fin":"15-01-2020"
+
+
+},
+{ "id":8,
+"img":"assets/logo.png",
+"descriptif": "Entretien de rose en l'absence su proprietaire pour une duree de 4 jours.",
+"nom_proprietaire":"Awa ly",
+ "adresse":{
+  "rue":" 3 Ruelle du Royaume",
+  "code_postale":"91440",
+  "ville":"Bures sur Yvettes"
+
+ },
+ "date_debut":"12-01-2020",
+ "date_fin":"15-01-2020"
+
+
+},
+{ "id":9,
+"img":"assets/logo.png",
+"descriptif": "Entretien de rose en l'absence su proprietaire pour une duree de 4 jours.",
+"nom_proprietaire":"Awa ly",
+ "adresse":{
+  "rue":" 3 Ruelle du Royaume",
+  "code_postale":"91440",
+  "ville":"Bures sur Yvettes"
+
+ },
+ "date_debut":"12-01-2020",
+ "date_fin":"15-01-2020"
+
+
+}
+]
+}

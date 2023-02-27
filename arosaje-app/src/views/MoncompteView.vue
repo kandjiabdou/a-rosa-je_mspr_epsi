@@ -1,19 +1,25 @@
 <template>
-  <v-container>
-    fdsghjgkhljmhlgkfjhdgjkjhklhjgkj
+  <v-app>
+    <!-- <moncompte_photo /> -->
+     
+    <moncompte_info />
     
-  </v-container>
+    <moncompte_modif /> 
+     
+  </v-app>
 </template>
 
 <script>
-  export default {
-    name: 'HomeView',
-    data: () => ({
-        prenom:"",
-        nom:'', 
-        email:0,
-        mdp:'',
-        telephone:''
-    })
+import moncompte_info from "@/components/Moncompte_info";
+import moncompte_modif from "@/components/Moncompte_modif";
+// import moncompte_photo from "@/components/Moncompte_photo";
+export default {
+  name: "monCompte",
+  components: { 
+  //  moncompte_photo,
+    moncompte_info,
+    moncompte_modif,
   }
+};
 </script>
+

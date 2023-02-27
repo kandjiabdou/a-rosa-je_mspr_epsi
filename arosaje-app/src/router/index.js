@@ -3,6 +3,9 @@ import RegisterView from "@/views/RegisterView.vue"
 import HomeComponent from "@/views/HomeComponent.vue"
 
 
+import monCompte from '../views/MoncompteView.vue'
+import GardiennageView from '@/views/GardiennageView.vue'
+
 const routes = [
 
   {
@@ -26,7 +29,17 @@ const routes = [
     name: 'DemandeGardinnage',
     component: () => import('../views/DemandeGardinnage.vue')
   },
+  {
+    path: '/compte',
+    name: 'mon compte',
+    component: monCompte
+  },
+  {
+    path: '/gardiennage',
+    name: 'gariennageView',
+    component: GardiennageView
 
+  }
 ]
 
 const router = createRouter({
