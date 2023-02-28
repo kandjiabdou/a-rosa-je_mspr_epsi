@@ -20,4 +20,11 @@ router.delete('*', function(req, res){
     })
 });
 
+router.put('*', function(req, res){
+    res.json({
+        "error" : "404",
+        "message":"The route PUT '"+req.url+"' doesn't exist",
+    })
+});
+
 module.exports = router; // export to use in main.js
