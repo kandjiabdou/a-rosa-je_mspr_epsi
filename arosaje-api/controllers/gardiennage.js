@@ -81,23 +81,27 @@ const deleteGardienngaeIdUserIdGar = async (req, res, next) => {
     })
     if(gardiennage) {
         if( gardiennage.id_user === parseInt(req.params.idUser)){
-            const deleteGard = await prisma.Gardiennage.delete({
-                where: {
-                    idAnnonce: parseInt(req.params.idAnnonce)
-                }
-            })
-            return res.status(200).json({
-                "status": 200,
-                deleteGard
-            })
+            try{
+                const deleteGard = await prisma.Gardiennage.delete({
+                    where: {
+                        idAnnonce : parseInt(req.params.idAnnonce)
+                    }
+                })
+                return res.status(200).json({
+                    "status": 200,
+                    deleteGard
+                })
+            }catch (error) {
+                console.log(error);
+                return res.json(errorResponse("Erreur de suppression de gardiennage", 400))
+            }
         }
         return res.json(errorResponse("Imposible de supprimer le gardiennage", 400))
     }else{
         return res.json(errorResponse("Pas de gardiennage trouvé", 400))
     }
-    
-    
 };
+
 
 const errorResponse = (status, message) => {
     return { "status": status, "message": message };

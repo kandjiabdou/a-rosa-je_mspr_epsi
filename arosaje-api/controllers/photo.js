@@ -71,7 +71,6 @@ const createPhotoGardiennage = async (req, res, next) => {
         const photo = await prisma.PhotoGardiennage.create({
             data: {
                 lien : rBody.lien,
-                date_photo : new Date(rBody.date_photo),
                 idGardiennage : parseInt(rBody.idGardiennage)
             }
         })
@@ -92,7 +91,6 @@ const createPhotoAnnonce = async (req, res, next) => {
         const photo = await prisma.PhotoAnnonce.create({
             data: {
                 lien : rBody.lien,
-                date_photo : new Date(rBody.date_photo),
                 idAnnonce : parseInt(rBody.idAnnonce)
             }
         })
