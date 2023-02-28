@@ -14,6 +14,7 @@ app.use('/', auth);
 app.use('/', annonce);
 app.use('/', gardiennage);
 app.use('/', photo);
+app.use('/images', express.static('images'));
 app.use('/', droutes);
 
 const LISTEN_PORT = 3000;

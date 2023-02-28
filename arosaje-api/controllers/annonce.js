@@ -92,7 +92,7 @@ const getALLAnnonceByUser = async (req, res, next) => {
 
 const createAnnonce = async (req, res, next) => {
     const rBody = req.body
-    console.log("data",rBody)
+    console.log("file",req.files)
     try {
         const annonce = await prisma.Annonce.create({
             data: {
