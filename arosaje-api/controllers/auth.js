@@ -8,6 +8,7 @@ const app = express()
 app.use(express.json())
 
 const login = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     const rBody = req.body
     try{
         if(!rBody.email || !rBody.mdp){
@@ -33,6 +34,7 @@ const login = async (req, res, next) => {
 };
 
 const signup = async (req, res, next)=>{
+    res.header("Access-Control-Allow-Origin", "*")
     const rBody = req.body
     const userExist = await prisma.user.findUnique({where: {email: rBody.email}})
     
@@ -44,21 +46,53 @@ const signup = async (req, res, next)=>{
         mdpHash = await bcrypt.hash(rBody.mdp, 10);
         const user = await prisma.User.create({
             data: {
-                prenom : rBody.prenom, nom : rBody.nom, email : rBody.email, mdp : mdpHash, telephone : rBody.telephone
+                prenom : rBody.prenom, nom : rBody.nom, email : rBody.email, mdp : mdpHash, telephone : rBody.telephone, role_user : rBody.role_user
             }
         })
         res.status(201).json({
             success: true,
             user
         })
-        
     } catch (error) {
         console.log(error);
         return res.json(errorResponse("Erreur d'inscription", 400 ))
     }
 }
 
+const role = async (req, res, next)=>{
+    res.header("Access-Control-Allow-Origin", "*")
+    const rBody = req.body
+    const roleExist = await prisma.Role.findUnique({where: {nom: rBody.nom}})
+    
+    if (roleExist){
+        return res.json(errorResponse("Ce role existe déjà", 400))
+    }
+    try {
+        const role = await prisma.Role.create({
+            data: {nom : rBody.nom}
+        })
+        res.status(201).json({
+            success: true,
+            role
+        })
+    } catch (error) {
+        console.log(error);
+        return res.json(errorResponse("Erreur de création de role", 400 ))
+    }
+}
+
+const getAllRole = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
+    const roles = await prisma.Role.findMany({
+    })
+    res.status(200).json({
+        "count": roles.length,
+        roles
+    })
+};
+
 const logout = (req, res, next)=>{
+    res.header("Access-Control-Allow-Origin", "*")
     res.clearCookie('token');
     res.status(200).json({
         success: true,
@@ -72,11 +106,12 @@ const genererToken = async (user, statusCode, res) =>{
         httpOnly: true,
         expires: new Date(Date.now() + 60*60*1000)
     };
-    return res.status(statusCode).cookie('token', token, options ).json({success: true, token, id : user.id_user})
+    delete user["mdp"]
+    return res.status(statusCode).cookie('token', token, options ).json({success: true, token, user})
 };
 const errorResponse = (status, message) => {
     return {"status" : status, "message" : message};
 };
 
 
-module.exports = {login, signup, logout};
+module.exports = {login, signup, logout, role, getAllRole};

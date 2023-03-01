@@ -5,14 +5,14 @@ const userController = require('../controllers/user');
 
 const app = require('express')()
 const bodyParser = require('body-parser')
-const multer = require('multer') // v1.0.5
-// const upload = multer() // for parsing multipart/form-data
+const multer = require('multer')
+const upload = multer()
 
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencode
 
 router.get('/user', userController.getAllUser);
 router.get('/user/:id', userController.singleUser );
-// router.post('/user', upload.array(), userController.newUser);
+router.put('/user', upload.array(), userController.udateMdp );
 
 module.exports = router; // export to use in main.js

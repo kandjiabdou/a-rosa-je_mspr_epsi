@@ -6,6 +6,7 @@ const app = express()
 app.use(express.json())
 
 const getGardiennage = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     if (!req.params.id) return res.json(errorResponse("Veuillez donnez l'id de l'Gardiennage", 400))
     const gardiennage = await prisma.Gardiennage.findUnique({
         where: { id_gardiennage: parseInt(req.params.id) }
@@ -13,6 +14,8 @@ const getGardiennage = async (req, res, next) => {
     if (!gardiennage) {
         return res.json(errorResponse("Aucun Gardiennage trouvé", 400))
     }
+    const d = new Date(gardiennage['date_fin']).toLocaleDateString()
+    console.log("date fin = ", d)
     return res.status(200).json({
         sucess: true,
         gardiennage
@@ -20,6 +23,7 @@ const getGardiennage = async (req, res, next) => {
 };
 
 const getAllGardiennage = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     const gardiennages = await prisma.Gardiennage.findMany({
     })
     res.status(200).json({
@@ -29,6 +33,7 @@ const getAllGardiennage = async (req, res, next) => {
 };
 
 const getAllGardiennageByUser = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     const gardiennages = await prisma.Gardiennage.findMany({
         where: { id_user: parseInt(req.params.id) },
         include: {
@@ -47,6 +52,7 @@ const getAllGardiennageByUser = async (req, res, next) => {
 };
 
 const createGardiennage = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     const rBody = req.body
     try {
         const gardiennage = await prisma.Gardiennage.create({
@@ -76,28 +82,33 @@ const createGardiennage = async (req, res, next) => {
 }
 
 const deleteGardienngaeIdUserIdGar = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     const gardiennage = await prisma.Gardiennage.findUnique({
         where: { idAnnonce: parseInt(req.params.idAnnonce)}
     })
     if(gardiennage) {
         if( gardiennage.id_user === parseInt(req.params.idUser)){
-            const deleteGard = await prisma.Gardiennage.delete({
-                where: {
-                    idAnnonce: parseInt(req.params.idAnnonce)
-                }
-            })
-            return res.status(200).json({
-                "status": 200,
-                deleteGard
-            })
+            try{
+                const deleteGard = await prisma.Gardiennage.delete({
+                    where: {
+                        idAnnonce : parseInt(req.params.idAnnonce)
+                    }
+                })
+                return res.status(200).json({
+                    "status": 200,
+                    deleteGard
+                })
+            }catch (error) {
+                console.log(error);
+                return res.json(errorResponse("Erreur de suppression de gardiennage", 400))
+            }
         }
         return res.json(errorResponse("Imposible de supprimer le gardiennage", 400))
     }else{
         return res.json(errorResponse("Pas de gardiennage trouvé", 400))
     }
-    
-    
 };
+
 
 const errorResponse = (status, message) => {
     return { "status": status, "message": message };
