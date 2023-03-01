@@ -1,5 +1,6 @@
 <template>
-<v-carousel class="accueil">
+
+<v-carousel class="fullscreen">
 <v-carousel-item
     src="https://images.pexels.com/photos/8512675/pexels-photo-8512675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
     cover
@@ -28,6 +29,7 @@
     </v-card-actions>
   </v-card>
 </v-container>
+
 </template>
 <script>
 import { useLocale } from 'vuetify'
@@ -44,6 +46,12 @@ export default {
 };
 </script>
 <style>
+
+.fullscreen {
+  height: 100%;
+  width: 100%;
+}
+
 
 .desc{
   color:white;
