@@ -8,6 +8,7 @@ const app = express()
 app.use(express.json())
 
 const login = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     const rBody = req.body
     try{
         if(!rBody.email || !rBody.mdp){
@@ -33,6 +34,7 @@ const login = async (req, res, next) => {
 };
 
 const signup = async (req, res, next)=>{
+    res.header("Access-Control-Allow-Origin", "*")
     const rBody = req.body
     const userExist = await prisma.user.findUnique({where: {email: rBody.email}})
     
@@ -58,6 +60,7 @@ const signup = async (req, res, next)=>{
 }
 
 const role = async (req, res, next)=>{
+    res.header("Access-Control-Allow-Origin", "*")
     const rBody = req.body
     const roleExist = await prisma.Role.findUnique({where: {nom: rBody.nom}})
     
@@ -79,6 +82,7 @@ const role = async (req, res, next)=>{
 }
 
 const getAllRole = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     const roles = await prisma.Role.findMany({
     })
     res.status(200).json({
@@ -88,6 +92,7 @@ const getAllRole = async (req, res, next) => {
 };
 
 const logout = (req, res, next)=>{
+    res.header("Access-Control-Allow-Origin", "*")
     res.clearCookie('token');
     res.status(200).json({
         success: true,
@@ -101,7 +106,8 @@ const genererToken = async (user, statusCode, res) =>{
         httpOnly: true,
         expires: new Date(Date.now() + 60*60*1000)
     };
-    return res.status(statusCode).cookie('token', token, options ).json({success: true, token, id : user.id_user})
+    delete user["mdp"]
+    return res.status(statusCode).cookie('token', token, options ).json({success: true, token, user})
 };
 const errorResponse = (status, message) => {
     return {"status" : status, "message" : message};

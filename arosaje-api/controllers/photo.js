@@ -7,6 +7,7 @@ app.use(express.json())
 
 
 const getPhoto = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     if(! req.params.id) return res.json(errorResponse("Veuillez donnez l'id de l'photo", 400))
     const photo = await prisma.PhotoAnnonce.findUnique({
         where: { id_photo: parseInt(req.params.id) }
@@ -21,6 +22,7 @@ const getPhoto = async (req, res, next) => {
 };
 
 const getAllPhotoAnnonce = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     const photos = await prisma.PhotoAnnonce.findMany({
     })
     res.status(200).json({
@@ -29,6 +31,7 @@ const getAllPhotoAnnonce = async (req, res, next) => {
     })
 };
 const getAllPhotoGardiennage = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     const photos = await prisma.PhotoGardiennage.findMany({
     })
     res.status(200).json({
@@ -38,6 +41,7 @@ const getAllPhotoGardiennage = async (req, res, next) => {
 };
 
 const getPhotoGardiennageId = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     if(! req.params.id) return res.json(errorResponse("Veuillez donnez l'id de l'photo", 400))
     const photos = await prisma.PhotoGardiennage.findMany({
         where: { idGardiennage: parseInt(req.params.id) }
@@ -52,6 +56,7 @@ const getPhotoGardiennageId = async (req, res, next) => {
 };
 
 const getPhotoAnnonceId = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     if(! req.params.id) return res.json(errorResponse("Veuillez donnez l'id de l'photo", 400))
     const photos = await prisma.PhotoAnnonce.findMany({
         where: { idAnnonce: parseInt(req.params.id) }
@@ -66,6 +71,7 @@ const getPhotoAnnonceId = async (req, res, next) => {
 };
 
 const createPhotoGardiennage = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     const rBody = req.body
     try {
         const photo = await prisma.PhotoGardiennage.create({
@@ -86,6 +92,7 @@ const createPhotoGardiennage = async (req, res, next) => {
 }
 
 const createPhotoAnnonce = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     const rBody = req.body
     try {
         const photo = await prisma.PhotoAnnonce.create({

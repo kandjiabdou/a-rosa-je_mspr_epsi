@@ -8,6 +8,7 @@ app.use(express.json())
 
 
 const singleUser = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     const user = await prisma.user.findUnique({
         where: { id_user: parseInt(req.params.id) }
     })
@@ -21,6 +22,7 @@ const singleUser = async (req, res, next) => {
 };
 
 const getAllUser = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     const users = await prisma.User.findMany({
     })
     console.log("ok")
@@ -31,6 +33,7 @@ const getAllUser = async (req, res, next) => {
 };
 
 const udateMdp = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     const rBody = req.body
     const user = await prisma.user.findUnique({ where: { id_user: parseInt(rBody.idUser) } })
 

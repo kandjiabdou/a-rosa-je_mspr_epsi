@@ -7,6 +7,7 @@ app.use(express.json())
 
 
 const getAnnonce = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     if(isNaN(req.params.id)) return res.json(errorResponse("Veuillez donnez l'id de l'annonce", 400))
     const annonce = await prisma.Annonce.findUnique({
         where: { id_annonce: parseInt(req.params.id) },
@@ -27,6 +28,7 @@ const getAnnonce = async (req, res, next) => {
 };
 
 const getAllAnnonce = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     const annonces = await prisma.Annonce.findMany({
     })
     console.log("ok")
@@ -36,6 +38,7 @@ const getAllAnnonce = async (req, res, next) => {
     })
 };
 const getAllAnnonces = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     try {
         const annonces = await prisma.Annonce.findMany({
             include : {
@@ -57,6 +60,7 @@ const getAllAnnonces = async (req, res, next) => {
     
 };
 const getAllAnnonceByFilter = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     const filter = req.query;
     console.log(filter)
     if (filter.type_gardien) filter.type_gardien = parseInt(filter.type_gardien)
@@ -72,6 +76,7 @@ const getAllAnnonceByFilter = async (req, res, next) => {
 };
 
 const getALLAnnonceByUser = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     if(! req.params.id) return res.json(errorResponse("Veuillez donnez l'id du user", 400))
     const annonces = await prisma.Annonce.findMany({
         where: { id_user: parseInt(req.params.id) },
@@ -91,6 +96,7 @@ const getALLAnnonceByUser = async (req, res, next) => {
 };
 
 const createAnnonce = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     const rBody = req.body
     console.log("file",req.files)
     try {
@@ -116,6 +122,7 @@ const createAnnonce = async (req, res, next) => {
 }
 
 const deleteAnnonceIdUserIdAn = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     const annonce = await prisma.Annonce.findUnique({
         where: { id_annonce: parseInt(req.params.idAnnonce)}
     })
@@ -143,6 +150,7 @@ const deleteAnnonceIdUserIdAn = async (req, res, next) => {
 };
 
 const createConseil = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
     const rBody = req.body
     const user = await prisma.user.findUnique({where: {id_user: parseInt(rBody.idUser)}})
     if(user.role_user != "botaniste"){
