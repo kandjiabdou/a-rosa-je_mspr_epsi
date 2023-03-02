@@ -26,7 +26,7 @@
 
     </v-row>
   </v-container>
-  <v-col>
+  <!-- <v-col>
     <v-sheet class="pa-2 ma-2">
       <div class="d-flex justify-space-around align-center flex-column flex-md-row fill-height">
         <form class="info">
@@ -45,7 +45,7 @@
         </form>
       </div>
     </v-sheet>
-  </v-col>
+  </v-col> -->
 </template>
 
 <style scoped>

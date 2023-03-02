@@ -45,7 +45,7 @@
                     cols=" item.photo_gardiennage.length"
                   >
                     <v-img
-                      :src="'http://localhost:3000'+photo.lien"
+                      :src="'http://localhost:3000' + photo.lien"
                       :lazy-src="photo.lien"
                       aspect-ratio="1"
                       cover
@@ -135,5 +135,3 @@ export default {
   },
 };
 </script>
-
-
