@@ -1,0 +1,17 @@
+{
+  "title" : "Arosaje",
+  "about_title" : "A propos",
+  "history_title" : "Historique",
+  "manuel_title" : "Entrer manual un temps dans l'historique",
+  "about_text" : "Nous avons sélectionné avec des professeurs expérimentés de français des textes faciles à lire et amusants. A la fin des textes, un exercice sous forme de QCM permet de valider ses acquis. Il est à noter que l'édition gratuite des textes sous forme de PDF est un vrai plus. Désormais la langue de Molière n'aura plus de secret pour vous.",
+  "drawer" :{
+    "home" : "Acceuil",
+    "dgardiennage" : "Demande de gardinnage",
+    "gdemande": "Gérer mes demandes",
+    "mesgardiennage": "Mes gardinnages",
+    "message": "Mes messages",
+    "compte": "Mon compte",
+    "logout": "Se déconnecter"
+    
+  }
+}
