@@ -18,7 +18,7 @@
        </v-toolbar>
 
        <v-list >
-         <template :key="index" v-for="(item, index) in post">
+         <template>
 
            <v-list-item >
              <v-avatar class="avatar" size="50">

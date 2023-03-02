@@ -6,10 +6,9 @@ import GardiennageView from '@/views/GardiennageView.vue'
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'home1',
     component: HomeComponent
   },
-
   {
     path: '/home',
     name: 'home',
@@ -31,8 +30,6 @@ const routes = [
     name: 'RegisterLogin',
     component: () => import('../views/RegisterView.vue')
   },
-
-
   {
     path: '/demande-gardinnage',
     name: 'DemandeGardinnage',

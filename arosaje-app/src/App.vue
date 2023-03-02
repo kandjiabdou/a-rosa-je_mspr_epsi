@@ -79,16 +79,6 @@ export default defineComponent({
 
 <style>
 
-.sidenav {
-  height: 100%;
-  width:100%;
-  z-index: 1;
-  top: 0;
-  background-color: black;
-  transition: left 0.5s ease;
-
-
-}
 
 
 ul{
@@ -105,9 +95,12 @@ li{
 }
 
 a{
-  color:white;
+  color:white !important;
   text-decoration: none;
 }
+a :hover{
+  color: forestgreen;
 
+}
 
 </style>

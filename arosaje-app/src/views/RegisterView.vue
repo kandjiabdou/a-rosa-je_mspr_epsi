@@ -1,80 +1,69 @@
 <template>
-
   <div class="containnerform">
     <div class="bloc">
-
       <div class="form">
-        <img src="https://e7.pngegg.com/pngimages/293/425/png-clipart-natural-environment-plant-%E4%B8%80%E5%80%8B%E6%96%B0%E4%B8%96%E7%95%8C-%E5%96%9A%E9%86%92%E5%85%A7%E5%9C%A8%E7%9A%84%E5%8A%9B%E9%87%8F-orchids-soil-natural-environment-leaf-logo.png" alt="logoaro"/>
+        <img
+          src="https://e7.pngegg.com/pngimages/293/425/png-clipart-natural-environment-plant-%E4%B8%80%E5%80%8B%E6%96%B0%E4%B8%96%E7%95%8C-%E5%96%9A%E9%86%92%E5%85%A7%E5%9C%A8%E7%9A%84%E5%8A%9B%E9%87%8F-orchids-soil-natural-environment-leaf-logo.png"
+          alt="logoaro" />
         <form @submit.prevent="submit" :validation-schema="schema">
-        <div v-if="!successful">
-          <div class="form-group">
-            <label for="username">Nom</label>
-            <Field name="name" type="text" v-model="nom" class="form-control" />
-            <ErrorMessage name="name" class="error-feedback" />
-          </div>
-          <div class="form-group">
-            <label for="username">Prenom</label>
-            <Field name="prenom" type="text" v-model="prenom" class="form-control" />
-            <ErrorMessage name="prenom" class="error-feedback" />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <Field name="email" type="email" v-model="email" class="form-control" />
-            <ErrorMessage name="email" class="error-feedback" />
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <Field name="password" type="password" class="form-control" v-model="mdp" />
-            <ErrorMessage name="password" class="error-feedback" />
-          </div>
+          <div v-if="!successful">
+            <div class="form-group">
+              <label for="username">Nom</label>
+              <Field name="name" type="text" v-model="nom" class="form-control" />
+              <ErrorMessage name="name" class="error-feedback" />
+            </div>
+            <div class="form-group">
+              <label for="username">Prenom</label>
+              <Field name="prenom" type="text" v-model="prenom" class="form-control" />
+              <ErrorMessage name="prenom" class="error-feedback" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <Field name="email" type="email" v-model="email" class="form-control" />
+              <ErrorMessage name="email" class="error-feedback" />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <Field name="password" type="password" class="form-control" v-model="mdp" />
+              <ErrorMessage name="password" class="error-feedback" />
+            </div>
 
-          <div class="form-group">
-            <button  type="submit" class="btn btn-primary btn-block">
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block">
 
-              Sign Up
-            </button>
+                Inscription
+              </button>
+            </div>
           </div>
-        </div>
-      </form>
-        </div>
+        </form>
+      </div>
 
       <div class="text">
-
         <div class="bloci">
-
-          <p>Vous n'avez pas de compte inscrivez-vous pour accéder à nos services</p>
+          <p>
+            Vous n'avez pas de compte inscrivez-vous pour accéder à nos services
+          </p>
           <div class="mybtn">
-            <button  onclick="window.location.href = '/login';" class="btn  btn-block" :disabled="loading">
-            <span
-                v-show="loading"
-                class="spinner-border spinner-border-sm"
-            ></span>
+            <button onclick="window.location.href = '/login';" class="btn btn-block" :disabled="loading">
+              <span v-show="loading" class="spinner-border spinner-border-sm"></span>
 
               <span>Connexion</span>
-
             </button>
-
           </div>
-
         </div>
 
-      <div
-          v-if="message"
-          class="alert"
-          :class="successful ? 'alert-success' : 'alert-danger'"
-      >
-        {{ message }}
+        <div v-if="message" class="alert" :class="successful ? 'alert-success' : 'alert-danger'">
+          {{ message }}
+        </div>
       </div>
     </div>
   </div>
-  </div>
-
 </template>
 
 <script>
-import {  Field, ErrorMessage } from "vee-validate";
+import { Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   name: "RegisterLogin",
@@ -85,20 +74,20 @@ export default {
   data() {
     const schema = yup.object().shape({
       username: yup
-          .string()
-          .required("Un identifiant est nécessaire!")
-          .min(3, "Dois contenir plus de 3 caractéres !")
-          .max(20, "Dois contenir au maximum 20 caractéres !"),
+        .string()
+        .required("Un identifiant est nécessaire!")
+        .min(3, "Dois contenir plus de 3 caractéres !")
+        .max(20, "Dois contenir au maximum 20 caractéres !"),
       email: yup
-          .string()
-          .required("Un mail est nécessaire!")
-          .email("Email invalid!")
-          .max(50, "Dois contenir au maximum 20 caractéres!"),
+        .string()
+        .required("Un mail est nécessaire!")
+        .email("Email invalid!")
+        .max(50, "Dois contenir au maximum 20 caractéres!"),
       password: yup
-          .string()
-          .required("Mot de passe nécessaire !")
-          .min(8, "Dois contenir au moins 8 caractéres !")
-          .max(40, "Dois contenir au maximum 20 caractéres!"),
+        .string()
+        .required("Mot de passe nécessaire !")
+        .min(8, "Dois contenir au moins 8 caractéres !")
+        .max(40, "Dois contenir au maximum 20 caractéres!"),
     });
 
     return {
@@ -106,33 +95,37 @@ export default {
       loading: false,
       message: "",
       schema,
-      email: '',
-      name:'',
-      prenom:'',
-      password: '',
-
+      email: "",
+      name: "",
+      prenom: "",
+      password: "",
     };
   },
   methods: {
     async submit() {
       try {
-        const response = await axios.post('http://localhost:3000/signup', {
+        let response = await axios.post("http://localhost:3000/signup", {
           nom: this.nom,
           prenom: this.prenom,
           email: this.email,
-          mdp: this.mdp
+          mdp: this.mdp,
         });
-        console.log("response login",response)
-
-        // La réponse doit contenir un jeton d'authentification si l'authentification réussit
-        const token = response.data.token;
-
-        // Stocker le jeton d'authentification dans le stockage local
-        localStorage.setItem('token', token);
-        console.log(token)
-
-        // Rediriger l'utilisateur vers une page protégée
-        //this.$router.push('/profil');
+        console.log("response login", response);
+        const data = response.data;
+        console.log(data);
+        if (data["status"] != 400 || data["success"]) {
+          response = await axios.post("http://localhost:3000/login", {
+            email: this.email,
+            mdp: this.mdp,
+          });
+          // Enregistrer le jeton d'authentification dans le stockage local ou dans un cookie
+          localStorage.setItem('authToken', response.data.token);
+          // Rediriger l'utilisateur vers la page suivante
+          this.$router.push('/profil');
+        } else {
+          // Afficher un message d'erreur à l'utilisateur
+          alert(data.message);
+        }
       } catch (error) {
         console.error(error);
       }
@@ -143,87 +136,101 @@ export default {
 
 
 <style>
-
-.containnerform{
-  margin:auto;
+.containnerform {
+  margin: auto;
   width: 50%;
   height: 80%;
 }
-.bloc{
-  margin-top:5px;
+
+.bloc {
+  margin-top: 5px;
   display: flex;
   justify-content: space-between;
-  box-shadow: 10px 5px 5px gray ;
+  box-shadow: 10px 5px 5px gray;
   height: 550px;
-  
 }
-.form{
+
+.form {
   margin-right: 70px !important;
   width: 550px;
   margin-top: 20px;
 }
-.text{
-  width:80%;
-  height:100%;
+
+.text {
+  width: 80%;
+  height: 100%;
   background-color: forestgreen;
 }
-.bloci{
+
+.bloci {
   margin-top: 150px;
-  text-align:center ;
+  text-align: center;
   font-size: 18px;
   padding: 20px;
-
 }
 
-.mybtn button{
-  width:30vh;
-  margin:auto;
+.mybtn button {
+  width: 30vh;
+  margin: auto;
   background-color: white;
-
 }
-.form img{
+
+.form img {
   width: 100px;
   height: 100px;
-  margin-left:80px;
+  margin-left: 80px;
 }
-.text p{
 
-  color:white;
-}
-.titre{
-  margin-left:50px;
-
-}
-a{
+.text p {
   color: white;
 }
-a :hover{
+
+.titre {
+  margin-left: 50px;
+}
+
+a {
+  color: white;
+}
+
+a :hover {
   color: forestgreen;
 }
 
-.btnc{
+.btnc {
   background-color: forestgreen;
   height: 40px;
   color: white;
 }
-@media screen and (max-width: 756px){
-  .containnerform{
+
+@media screen and (max-width: 756px) {
+  .containnerform {
     height: 100vh;
-    width:40vh;
+    width: 40vh;
   }
-  .bloc{
-    height:800px;
-    display:flex;
-    flex-direction:column ;
+
+  .bloc {
+    width: 300px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-top: 20px;
   }
-  .form{
+
+  .form {
     margin-right: 100px !important;
     width: 280px;
     margin-top: 20px;
   }
 
-}
+  .text {
+    width: 100%;
+    height: 50%;
+    background-color: forestgreen;
+  }
 
+}
 </style>
 
 
