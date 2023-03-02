@@ -6,25 +6,22 @@
         <img src="https://e7.pngegg.com/pngimages/293/425/png-clipart-natural-environment-plant-%E4%B8%80%E5%80%8B%E6%96%B0%E4%B8%96%E7%95%8C-%E5%96%9A%E9%86%92%E5%85%A7%E5%9C%A8%E7%9A%84%E5%8A%9B%E9%87%8F-orchids-soil-natural-environment-leaf-logo.png" alt="logoaro"/>
 
 
-      <Form @submit="handleLogin" :validation-schema="schema" >
+      <form  @submit.prevent="onSubmit" :validation-schema="schema" >
         <div class="form-group" >
           <h3 class="titre"> Connectez-vous !</h3><br>
-          <label for="username">Identifiant</label>
-          <Field name="username" type="text" class="form-control" />
-          <ErrorMessage name="username" class="error-feedback" />
+          <label for="username">Email</label>
+          <Field  type="email"  v-model="email"  name="email" class="form-control" />
+          <ErrorMessage name="email" class="error-feedback" />
         </div>
         <div class="form-group">
           <label for="password">Mot de passe</label><br>
-          <Field name="password" type="password" class="form-control" />
+          <Field type="password" id="password" v-model="password" name="password"  class="form-control" />
           <ErrorMessage name="password" class="error-feedback" />
         </div>
 
         <div class="form-group">
-          <button class="btnc  btn-block" :disabled="loading">
-            <span
-                v-show="loading"
-                class="spinner-border spinner-border-sm"
-            ></span>
+          <button class="btnc  btn-block" type="submit">
+
             <span>Login</span>
           </button>
          <br><a href="#"> Mot de passe oublié ?</a>
@@ -35,15 +32,15 @@
             {{ message }}
           </div>
         </div>
-      </Form>
+      </form>
     </div>
       <div class="text">
 
           <div class="bloci">
 
-            <p>Vous n'avez pas de compte inscrivez-vous pour accéder à nos services</p>
+            <p>Vous avez déja un compte connectez-vous pour accéder à votre profil</p>
             <div class="mybtn">
-              <button  onclick="window.location.href = '/register';" class="btn  btn-block" :disabled="loading">
+              <button  onclick="window.location.href = '/register';" class="btn  btn-block">
             <span
                 v-show="loading"
                 class="spinner-border spinner-border-sm"
@@ -65,19 +62,18 @@
 </template>
 
 <script>
-import { Form, Field, ErrorMessage } from "vee-validate";
+import {  Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
 
 export default {
   name: "LoginComponent",
   components: {
-    Form,
     Field,
     ErrorMessage,
   },
   data() {
     const schema = yup.object().shape({
-      username: yup.string().required("Veiller entrer votre identifiant"),
+      email: yup.string().required("Veiller entrer votre identifiant"),
       password: yup.string().required("Veiller entrer votre mot de passe"),
     });
 
@@ -85,34 +81,46 @@ export default {
       loading: false,
       message: "",
       schema,
+      email: '',
+      password: ''
     };
   },
-
-  created() {
-    if (this.loggedIn) {
-      this.$router.push("/profil");
-    }
-  },
   methods: {
-    handleLogin(user) {
-      this.loading = true;
-
-      this.$store.dispatch("auth/login", user).then(
-          () => {
-            this.$router.push("/profil");
+    async onSubmit() {
+      try {
+        // Envoyer la requête d'authentification à l'API
+        const response = await fetch('http://localhost:3000/user', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
           },
-          (error) => {
-            this.loading = false;
-            this.message =
-                (error.response &&
-                    error.response.data &&
-                    error.response.data.message) ||
-                error.message ||
-                error.toString();
-          }
-      );
-    },
-  },
+          body: JSON.stringify({
+            email: this.email,
+            password: this.password
+          })
+        });
+
+        // Traiter la réponse de l'API
+        const data = await response.json();
+
+        if (response.ok) {
+          // Enregistrer le jeton d'authentification dans le stockage local ou dans un cookie
+          localStorage.setItem('authToken', data.token);
+
+          // Rediriger l'utilisateur vers la page suivante
+          this.$router.push('/home');
+        } else {
+          // Afficher un message d'erreur à l'utilisateur
+          alert(data.message);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
+
+
+
 };
 </script>
 
@@ -131,6 +139,7 @@ export default {
   margin-top: 40px;
   box-shadow: 10px 5px 5px gray ;
   height: 500px;
+  width: 700px;
 }
 .form{
   margin-right: 70px !important;
@@ -138,7 +147,7 @@ export default {
   margin-top: 20px;
 }
 .text{
-  width:100%;
+  width:80%;
   height:100%;
   background-color: forestgreen;
 }
