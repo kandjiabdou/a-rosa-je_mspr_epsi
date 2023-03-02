@@ -1,5 +1,5 @@
 <template>
-  <v-card style="background-color: greenyellow">
+  <v-card style="background-color: black">
     <!-- commented out code not needed -->
 
     <v-toolbar style="background- color=">
@@ -8,11 +8,9 @@
     <div class="d-flex flex-row">
       <v-tabs v-model="tab" direction="vertical" color="primary">
         <v-tab v-for="item in gardiennageData" :key="item.i" :value="item.i">
-          <v-icon start color="green"> mdi-account </v-icon>
+          <v-icon start color="green"> mdi-history </v-icon>
 
-          <p color="white">{{ item.description.substr(1, 10) }}</p>
-
-          <v-icon color="white" @click="DeleteData(item.idAnnonce)"></v-icon>
+          {{ item.description.substr(1, 22) }}
         </v-tab>
       </v-tabs>
       <v-window v-model="tab" bac>
@@ -45,7 +43,6 @@
                 >
                   <v-img
                     :src="photo.lien"
-                    :lazy-src="photo.lien"
                     aspect-ratio="1"
                     cover
                     class="bg-grey-lighten-2"
