@@ -71,6 +71,77 @@
 
 </template>
 
+<script>
+import {  Field, ErrorMessage } from "vee-validate";
+import * as yup from "yup";
+import axios from 'axios';
+
+export default {
+  name: "RegisterLogin",
+  components: {
+    Field,
+    ErrorMessage,
+  },
+  data() {
+    const schema = yup.object().shape({
+      username: yup
+          .string()
+          .required("Un identifiant est nécessaire!")
+          .min(3, "Dois contenir plus de 3 caractéres !")
+          .max(20, "Dois contenir au maximum 20 caractéres !"),
+      email: yup
+          .string()
+          .required("Un mail est nécessaire!")
+          .email("Email invalid!")
+          .max(50, "Dois contenir au maximum 20 caractéres!"),
+      password: yup
+          .string()
+          .required("Mot de passe nécessaire !")
+          .min(8, "Dois contenir au moins 8 caractéres !")
+          .max(40, "Dois contenir au maximum 20 caractéres!"),
+    });
+
+    return {
+      successful: false,
+      loading: false,
+      message: "",
+      schema,
+      email: '',
+      name:'',
+      prenom:'',
+      password: '',
+
+    };
+  },
+  methods: {
+    async submit() {
+      try {
+        const response = await axios.post('http://localhost:3000/signup', {
+          nom: this.nom,
+          prenom: this.prenom,
+          email: this.email,
+          mdp: this.mdp
+        });
+        console.log("response login",response)
+
+        // La réponse doit contenir un jeton d'authentification si l'authentification réussit
+        const token = response.data.token;
+
+        // Stocker le jeton d'authentification dans le stockage local
+        localStorage.setItem('token', token);
+        console.log(token)
+
+        // Rediriger l'utilisateur vers une page protégée
+        //this.$router.push('/profil');
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
+};
+</script>
+
+
 <style>
 
 .containnerform{
@@ -163,75 +234,5 @@ a :hover{
 }
 
 </style>
-
-<script>
-import {  Field, ErrorMessage } from "vee-validate";
-import * as yup from "yup";
-import axios from 'axios';
-
-export default {
-  name: "RegisterLogin",
-  components: {
-    Field,
-    ErrorMessage,
-  },
-  data() {
-    const schema = yup.object().shape({
-      username: yup
-          .string()
-          .required("Un identifiant est nécessaire!")
-          .min(3, "Dois contenir plus de 3 caractéres !")
-          .max(20, "Dois contenir au maximum 20 caractéres !"),
-      email: yup
-          .string()
-          .required("Un mail est nécessaire!")
-          .email("Email invalid!")
-          .max(50, "Dois contenir au maximum 20 caractéres!"),
-      password: yup
-          .string()
-          .required("Mot de passe nécessaire !")
-          .min(8, "Dois contenir au moins 8 caractéres !")
-          .max(40, "Dois contenir au maximum 20 caractéres!"),
-    });
-
-    return {
-      successful: false,
-      loading: false,
-      message: "",
-      schema,
-      email: '',
-      name:'',
-      prenom:'',
-      password: '',
-
-    };
-  },
-  methods: {
-    async submit() {
-      try {
-        const response = await axios.post('http://localhost:3000/signup', {
-          nom: this.nom,
-          prenom: this.prenom,
-          email: this.email,
-          mdp: this.mdp
-        });
-        console.log("response login",response)
-
-        // La réponse doit contenir un jeton d'authentification si l'authentification réussit
-        const token = response.data.token;
-
-        // Stocker le jeton d'authentification dans le stockage local
-        localStorage.setItem('token', token);
-        console.log(token)
-
-        // Rediriger l'utilisateur vers une page protégée
-        //this.$router.push('/profil');
-      } catch (error) {
-        console.error(error);
-      }
-    },
-  },
-};
-</script>
 
 

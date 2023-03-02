@@ -64,6 +64,7 @@
 <script>
 import {  Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
+import axios from 'axios';
 
 export default {
   name: "LoginComponent",
@@ -86,36 +87,32 @@ export default {
     };
   },
   methods: {
-    async onSubmit() {
+    async onSubmit(){
       try {
         // Envoyer la requête d'authentification à l'API
-        const response = await fetch('http://localhost:3000/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            email: this.email,
-            mdp: this.password
-          })
+        const response = await axios.post('http://localhost:3000/login', {
+          email: this.email,
+          mdp: this.password
         });
-
         // Traiter la réponse de l'API
-        const data = await response.json();
 
-        if (response.ok) {
+        const data = response.data
+        console.log(data)
+        if (data['status'] != 400 || data['success']){
           // Enregistrer le jeton d'authentification dans le stockage local ou dans un cookie
           localStorage.setItem('authToken', data.token);
           console.log(data.token)
 
           // Rediriger l'utilisateur vers la page suivante
           //this.$router.push('/profil');
-        } else {
+          // Rediriger l'utilisateur vers la page suivante
+          this.$router.push('/profil');
+        } else{
           // Afficher un message d'erreur à l'utilisateur
           alert(data.message);
         }
       } catch (error) {
-        console.error(error);
+        alert(error.message)
       }
     }
   }
