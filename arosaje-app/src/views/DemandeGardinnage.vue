@@ -88,8 +88,6 @@ export default {
     onFilesSelected(event) {
       this.files = event.target.files;
     }
-
-
   }
 
 };
