@@ -8,9 +8,14 @@
         <form @submit.prevent="submit" :validation-schema="schema">
         <div v-if="!successful">
           <div class="form-group">
-            <label for="username">Identifiant</label>
-            <Field name="username" type="text" v-model="Username" class="form-control" />
-            <ErrorMessage name="username" class="error-feedback" />
+            <label for="username">Nom</label>
+            <Field name="name" type="text" v-model="nom" class="form-control" />
+            <ErrorMessage name="name" class="error-feedback" />
+          </div>
+          <div class="form-group">
+            <label for="username">Prenom</label>
+            <Field name="prenom" type="text" v-model="prenom" class="form-control" />
+            <ErrorMessage name="prenom" class="error-feedback" />
           </div>
           <div class="form-group">
             <label for="email">Email</label>
@@ -19,7 +24,7 @@
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <Field name="password" type="password" class="form-control" v-model="password" />
+            <Field name="password" type="password" class="form-control" v-model="mdp" />
             <ErrorMessage name="password" class="error-feedback" />
           </div>
 
@@ -45,7 +50,7 @@
                 class="spinner-border spinner-border-sm"
             ></span>
 
-              <span>Inscription</span>
+              <span>Connexion</span>
 
             </button>
 
@@ -74,15 +79,16 @@
   height: 80%;
 }
 .bloc{
+  margin-top:5px;
   display: flex;
   justify-content: space-between;
-  margin-top: 40px;
   box-shadow: 10px 5px 5px gray ;
-  height: 500px;
+  height: 550px;
+  
 }
 .form{
   margin-right: 70px !important;
-  width: 500px;
+  width: 550px;
   margin-top: 20px;
 }
 .text{
@@ -117,6 +123,13 @@
   margin-left:50px;
 
 }
+a{
+  color: white;
+}
+a :hover{
+  color: forestgreen;
+}
+
 .btnc{
   background-color: forestgreen;
   height: 40px;
@@ -178,20 +191,22 @@ export default {
       message: "",
       schema,
       email: '',
+      name:'',
+      prenom:'',
       password: '',
-      Username:'',
 
     };
   },
   methods: {
     async submit() {
       try {
-        const response = await axios.post('http://localhost:3000/login', {
-          Username: this.Username,
+        const response = await axios.post('http://localhost:3000/signup', {
+          nom: this.nom,
+          prenom: this.prenom,
           email: this.email,
-          password: this.password,
-
+          mdp: this.mdp
         });
+        console.log("response login",response)
 
         // La réponse doit contenir un jeton d'authentification si l'authentification réussit
         const token = response.data.token;
@@ -201,7 +216,7 @@ export default {
         console.log(token)
 
         // Rediriger l'utilisateur vers une page protégée
-        this.$router.push('/profil');
+        //this.$router.push('/profil');
       } catch (error) {
         console.error(error);
       }

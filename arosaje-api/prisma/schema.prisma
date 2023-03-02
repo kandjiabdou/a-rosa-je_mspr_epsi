@@ -15,16 +15,18 @@ model Role {
 
 model User {
   id_user      Int           @id @default(autoincrement())
-  prenom       String?
+  prenom       String
   nom          String
   email        String        @unique
-  telephone    String        @unique
-  Numero_rue   String?
+  telephone    String? @unique
+  nomero_rue   String?
+  nom_rue   String?
+  noom   String?
   code_postale String?
   ville        String?
-  mdp          String?
+  mdp          String
   flag         Int           @default(1)
-  role_user    String
+  role_user    String @default("user_lambda")
   role         Role          @relation(fields: [role_user], references: [nom])
   avatar       String        @default("/images/avatar/user-default.png")
   botanistes   Botaniste[]

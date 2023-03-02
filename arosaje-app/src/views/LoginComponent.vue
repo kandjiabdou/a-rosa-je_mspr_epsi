@@ -89,14 +89,14 @@ export default {
     async onSubmit() {
       try {
         // Envoyer la requête d'authentification à l'API
-        const response = await fetch('http://localhost:3000/user', {
+        const response = await fetch('http://localhost:3000/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
             email: this.email,
-            password: this.password
+            mdp: this.password
           })
         });
 
@@ -108,7 +108,7 @@ export default {
           localStorage.setItem('authToken', data.token);
 
           // Rediriger l'utilisateur vers la page suivante
-          this.$router.push('/home');
+          this.$router.push('/profil');
         } else {
           // Afficher un message d'erreur à l'utilisateur
           alert(data.message);
