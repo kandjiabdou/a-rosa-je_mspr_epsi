@@ -45,7 +45,7 @@ const signup = async (req, res, next)=>{
     try {
         mdpHash = await bcrypt.hash(rBody.mdp, 10);
         const user = await prisma.User.create({
-            data: { prenom : rBody.prenom, nom : rBody.nom, email : rBody.email, mdp : mdpHash}
+            data: { prenom : rBody.prenom, nom : rBody.nom, email : rBody.email, mdp : mdpHash, role_user: rBody.role}
         })
         res.status(201).json({success: true, user})
     } catch (error) {
