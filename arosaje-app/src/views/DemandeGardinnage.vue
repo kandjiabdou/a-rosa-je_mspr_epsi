@@ -1,6 +1,6 @@
 <template>
 
-  <v-col cols="12" sm="12" md="9" xs="12" class="demande">
+  <v-col cols="12" sm="12" md="8" xs="12" class="demande">
   <v-card class="mx-auto" >
     <v-card-text style="text-align:center;">
       <span class="titre">Demande de gardinnage</span>
@@ -27,7 +27,10 @@
                     multiple
                     @change="onFilesSelected"
                 ></v-file-input>
-                <v-text-field label="Disponiblité" prepend-icon="mdi-calendar"></v-text-field>
+                <v-container class="dispo">
+                <v-text-field class="deb" label="Date de début " prepend-icon="mdi-calendar"></v-text-field>
+                <v-text-field class="fin" label="Date de fin " prepend-icon="mdi-calendar"></v-text-field>
+                </v-container>
 
               </v-col>
 
@@ -109,6 +112,10 @@ export default {
     width: 100px;
     height: 70px;
 
+  }
+  .dispo{
+    display:flex;
+    justify-content: space-between;
 
   }
 

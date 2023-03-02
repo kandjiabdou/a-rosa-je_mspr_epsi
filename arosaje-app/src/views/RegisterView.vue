@@ -31,7 +31,7 @@
           <div class="form-group">
             <button  type="submit" class="btn btn-primary btn-block">
 
-              Sign Up
+              Inscription
             </button>
           </div>
         </div>
@@ -141,14 +141,23 @@ a :hover{
     width:40vh;
   }
   .bloc{
+    width:300px;
     height:800px;
     display:flex;
     flex-direction:column ;
+    margin-left: 10px;
+    margin-top: 20px;
   }
   .form{
     margin-right: 100px !important;
     width: 280px;
     margin-top: 20px;
+  }
+
+  .text{
+    width:100%;
+    height:50%;
+    background-color: forestgreen;
   }
 
 }

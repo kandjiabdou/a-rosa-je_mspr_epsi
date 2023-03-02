@@ -106,9 +106,10 @@ export default {
         if (response.ok) {
           // Enregistrer le jeton d'authentification dans le stockage local ou dans un cookie
           localStorage.setItem('authToken', data.token);
+          console.log(data.token)
 
           // Rediriger l'utilisateur vers la page suivante
-          this.$router.push('/profil');
+          //this.$router.push('/profil');
         } else {
           // Afficher un message d'erreur à l'utilisateur
           alert(data.message);
@@ -189,9 +190,12 @@ margin-left:50px;
     width:40vh;
   }
   .bloc{
+    width:300px;
     height:800px;
     display:flex;
     flex-direction:column ;
+    margin-left: 10px;
+    margin-top: 20px;
   }
   .form{
     margin-right: 100px !important;
@@ -199,6 +203,13 @@ margin-left:50px;
     margin-top: 20px;
   }
 
+  .text{
+    width:100%;
+    height:50%;
+    background-color: forestgreen;
+  }
+
 }
+
 
 </style>
