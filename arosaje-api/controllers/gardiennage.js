@@ -39,6 +39,13 @@ const getAllGardiennageByUser = async (req, res, next) => {
         include: {
             photo_gardiennage: {
                 where: { idGardiennage: this.id_gardiennage }
+            },
+            annonce: {
+                select: {
+                    user: {
+                        select: { prenom: true, nom: true, ville: true, nomero_rue: true, nom_rue: true, code_postale: true, ville: true },
+                    }
+                }
             }
         }
     })
@@ -84,27 +91,27 @@ const createGardiennage = async (req, res, next) => {
 const deleteGardienngaeIdUserIdGar = async (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*")
     const gardiennage = await prisma.Gardiennage.findUnique({
-        where: { idAnnonce: parseInt(req.params.idAnnonce)}
+        where: { idAnnonce: parseInt(req.params.idAnnonce) }
     })
-    if(gardiennage) {
-        if( gardiennage.id_user === parseInt(req.params.idUser)){
-            try{
+    if (gardiennage) {
+        if (gardiennage.id_user === parseInt(req.params.idUser)) {
+            try {
                 const deleteGard = await prisma.Gardiennage.delete({
                     where: {
-                        idAnnonce : parseInt(req.params.idAnnonce)
+                        idAnnonce: parseInt(req.params.idAnnonce)
                     }
                 })
                 return res.status(200).json({
                     "status": 200,
                     deleteGard
                 })
-            }catch (error) {
+            } catch (error) {
                 console.log(error);
                 return res.json(errorResponse("Erreur de suppression de gardiennage", 400))
             }
         }
         return res.json(errorResponse("Imposible de supprimer le gardiennage", 400))
-    }else{
+    } else {
         return res.json(errorResponse("Pas de gardiennage trouvé", 400))
     }
 };
