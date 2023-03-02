@@ -16,11 +16,13 @@
     cover
 ></v-carousel-item>
 </v-carousel>
-<v-container class="desc">
-  <v-card title="Card title" subtitle="Subtitle" text="{{ $vuetify.locale.t('$vuetify.home_text') }}"  height="200" color="green"  width="500" class="pa-6">
-    <v-card-actions>
-      <v-btn>Click me</v-btn>
-    </v-card-actions>
+<v-container>
+  <v-card title="Arosaje" subtitle="Subtitle" height="200" color="green"  width="500" class="pa-6">
+    L’entreprise “A’rosa-je” aide les particuliers à prendre soin de leurs plantes.
+Fondée en 1984 elle a tout d’abord été composée d’une petite équipe de botanistes dans une seule ville et est maintenant composée de plus de 1500 botanistes répartis sur toute la France qui rendent service aux propriétaires de plantes de deux façons :
+- En allant garder leurs plantes lorsque les propriétaires sont absents
+- En prodiguant des conseils d’entretien afin que les propriétaires s’occupent de mieux en mieux de leurs plantes
+
   </v-card>
 
   <v-card title="Card title" subtitle="Subtitle" text="" color="green"  width="500" height="200" class="pa-6">
