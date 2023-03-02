@@ -1,18 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import RegisterView from "@/views/RegisterView.vue"
 import HomeComponent from "@/views/HomeComponent.vue"
-
-
 import monCompte from '../views/MoncompteView.vue'
 import GardiennageView from '@/views/GardiennageView.vue'
 
 const routes = [
-
   {
-    path: '/register',
-    name: 'RegisterView',
-    component: RegisterView
+    path: '/',
+    name: 'home',
+    component: HomeComponent
   },
+
   {
     path: '/home',
     name: 'home',
@@ -23,6 +20,18 @@ const routes = [
     name: 'myContentDrawer',
     component: () => import('../views/ProfilView.vue')
   },
+
+  {
+    path: '/login',
+    name: "LoginComponent",
+    component: () => import('../views/LoginComponent.vue')
+  },
+  {
+    path: '/register',
+    name: 'RegisterLogin',
+    component: () => import('../views/RegisterView.vue')
+  },
+
 
   {
     path: '/demande-gardinnage',

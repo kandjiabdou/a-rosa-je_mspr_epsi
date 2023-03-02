@@ -7,8 +7,6 @@
             color="black"
             prominent
         >
-
-
           <v-img src="public/assets/logo.png" alt="logo"/>
 
         <li v-if="showAdminBoard" class="nav-item">
@@ -31,7 +29,7 @@
             </router-link>
           </li>
         <li class="nav-item">
-          <router-link to="/register" class="nav-link">
+          <router-link to="/login" class="nav-link">
             <i class="fas fa-user-alt"></i>   Connexion
           </router-link>
         </li>

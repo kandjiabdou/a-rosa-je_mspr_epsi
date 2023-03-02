@@ -16,7 +16,7 @@
               <v-row  class="post">
                 <v-list>
 
-                  <v-avatar class="avatar" size="80">
+                  <v-avatar class="avatar" size="60">
                     <v-img :src="item.avatar" alt="profile" />
 
                   </v-avatar>

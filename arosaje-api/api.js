@@ -5,9 +5,12 @@ const annonce = require('./routes/annonce');
 const gardiennage = require('./routes/gardiennage');
 const photo = require('./routes/photo');
 const droutes = require('./routes/default');
+const cors = require('cors');
 
 const app = express();
 app.use(express.json());
+
+app.use(cors());
 
 app.use('/', user);
 app.use('/', auth);

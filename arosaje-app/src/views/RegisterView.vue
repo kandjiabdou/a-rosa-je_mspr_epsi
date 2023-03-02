@@ -1,146 +1,213 @@
 <template>
-  <v-app id="inspire">
-    <v-content>
-      <v-container class="fill-height" fluid>
-        <v-row align="center" justify="center">
-          <v-col cols="8" sm="8" md="8">
-            <v-card class="elevation-12">
-              <v-window v-model="step">
-                <v-window-item :value="1">
-                  <v-row>
-                    <v-col cols="12" md="8">
-                      <v-card-text class="mt-12">
 
-                        <v-form>
-                          <v-text-field
-                              label="Email"
-                              name="Email"
-                              prepend-icon="email"
-                              type="text"
-                              color="teal accent-3"
-                          />
+  <div class="containnerform">
+    <div class="bloc">
 
-                          <v-text-field
-                              id="password"
-                              label="Password"
-                              name="password"
-                              prepend-icon="lock"
-                              type="password"
-                              color="teal accent-3"
-                          />
-                        </v-form>
-                        <h3 class="text-center mt-4">Mot de passe oublié ?</h3>
-                      </v-card-text>
-                      <div class="text-center mt-3">
-                       <a href="/profile"> <v-btn rounded color="teal accent-3" dark>Connection</v-btn></a>
-                        <v-container>
-                          <p><br></p>
+      <div class="form">
+        <img src="https://e7.pngegg.com/pngimages/293/425/png-clipart-natural-environment-plant-%E4%B8%80%E5%80%8B%E6%96%B0%E4%B8%96%E7%95%8C-%E5%96%9A%E9%86%92%E5%85%A7%E5%9C%A8%E7%9A%84%E5%8A%9B%E9%87%8F-orchids-soil-natural-environment-leaf-logo.png" alt="logoaro"/>
+        <form @submit.prevent="submit" :validation-schema="schema">
+        <div v-if="!successful">
+          <div class="form-group">
+            <label for="username">Identifiant</label>
+            <Field name="username" type="text" v-model="Username" class="form-control" />
+            <ErrorMessage name="username" class="error-feedback" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <Field name="email" type="email" v-model="email" class="form-control" />
+            <ErrorMessage name="email" class="error-feedback" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <Field name="password" type="password" class="form-control" v-model="password" />
+            <ErrorMessage name="password" class="error-feedback" />
+          </div>
 
-                      </v-container>
-                      </div>
-                    </v-col>
-                    <v-col cols="12" md="4" class="teal accent-3">
-                      <v-card-text class="white--text mt-12">
+          <div class="form-group">
+            <button  type="submit" class="btn btn-primary btn-block">
 
-                        <h5
-                            class="text-center"
-                        >Entrer vos identifiants pour accéder à votre compte</h5>
-                      </v-card-text>
-                      <div class="text-center">
-                        <v-btn rounded outlined dark @click="step++">Inscription</v-btn>
-                        <v-container>
-                          <p><br></p>
-                        </v-container>
-                      </div>
-                    </v-col>
-                  </v-row>
-                </v-window-item>
-                <v-window-item :value="2">
-                  <v-row class="fill-height">
-                    <v-col cols="12" md="4" class="teal accent-3">
-                      <v-card-text class="white--text mt-12">
-                        <h1 class="text-center display-1">Bienvenue!</h1>
-                        <h5
-                            class="text-center"
-                        >Pour rester connecté avec nous, veuillez vous connecter avec vos informations personnelles</h5>
-                      </v-card-text>
-                      <div class="text-center">
-                        <v-btn rounded outlined dark @click="step--">Connexion</v-btn>
-                      </div>
-                    </v-col>
+              Sign Up
+            </button>
+          </div>
+        </div>
+      </form>
+        </div>
 
-                    <v-col cols="12" md="8">
-                      <v-card-text class="mt-12">
-                        <h1 class="text-center display-2 teal--text text--accent-3">Creer un compte</h1>
+      <div class="text">
 
+        <div class="bloci">
 
-                        <h4 class="text-center mt-4">Assurez-vous d’envoyer votre courriel d’inscription.</h4>
-                        <v-form>
-                          <v-text-field
-                              label="Name"
-                              name="Name"
-                              prepend-icon="person"
-                              type="text"
-                              color="teal accent-3"
-                          />
-                          <v-text-field
-                              label="Email"
-                              name="Email"
-                              prepend-icon="email"
-                              type="text"
-                              color="teal accent-3"
-                          />
+          <p>Vous n'avez pas de compte inscrivez-vous pour accéder à nos services</p>
+          <div class="mybtn">
+            <button  onclick="window.location.href = '/login';" class="btn  btn-block" :disabled="loading">
+            <span
+                v-show="loading"
+                class="spinner-border spinner-border-sm"
+            ></span>
 
-                          <v-text-field
-                              id="password"
-                              label="Password"
-                              name="password"
-                              prepend-icon="lock"
-                              type="password"
-                              color="teal accent-3"
-                          />
-                        </v-form>
-                      </v-card-text>
-                      <div class="text-center mt-n5">
-                        <v-btn rounded color="teal accent-3" dark>Enregistrer</v-btn>
-                      </div>
-                      <v-container>
-                        <p><br></p>
+              <span>Inscription</span>
 
-                      </v-container>
-                    </v-col>
-                  </v-row>
-                </v-window-item>
-              </v-window>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-content>
-  </v-app>
+            </button>
+
+          </div>
+
+        </div>
+
+      <div
+          v-if="message"
+          class="alert"
+          :class="successful ? 'alert-success' : 'alert-danger'"
+      >
+        {{ message }}
+      </div>
+    </div>
+  </div>
+  </div>
+
 </template>
-
-<script>
-export default {
-  data: () => ({
-    step: 1
-  }),
-  props: {
-    source: String
-  }
-};
-</script>
 
 <style>
 
-.teal{
+.containnerform{
+  margin:auto;
+  width: 50%;
+  height: 80%;
+}
+.bloc{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  box-shadow: 10px 5px 5px gray ;
+  height: 500px;
+}
+.form{
+  margin-right: 70px !important;
+  width: 500px;
+  margin-top: 20px;
+}
+.text{
+  width:80%;
+  height:100%;
   background-color: forestgreen;
 }
-.elevation-12{
-  margin-top: 100px;
+.bloci{
+  margin-top: 150px;
+  text-align:center ;
+  font-size: 18px;
+  padding: 20px;
+
+}
+
+.mybtn button{
+  width:30vh;
+  margin:auto;
+  background-color: white;
+
+}
+.form img{
+  width: 100px;
+  height: 100px;
+  margin-left:80px;
+}
+.text p{
+
+  color:white;
+}
+.titre{
+  margin-left:50px;
+
+}
+.btnc{
+  background-color: forestgreen;
+  height: 40px;
+  color: white;
+}
+@media screen and (max-width: 756px){
+  .containnerform{
+    height: 100vh;
+    width:40vh;
+  }
+  .bloc{
+    height:800px;
+    display:flex;
+    flex-direction:column ;
+  }
+  .form{
+    margin-right: 100px !important;
+    width: 280px;
+    margin-top: 20px;
+  }
+
 }
 
 </style>
 
+<script>
+import {  Field, ErrorMessage } from "vee-validate";
+import * as yup from "yup";
+import axios from 'axios';
+
+export default {
+  name: "RegisterLogin",
+  components: {
+    Field,
+    ErrorMessage,
+  },
+  data() {
+    const schema = yup.object().shape({
+      username: yup
+          .string()
+          .required("Un identifiant est nécessaire!")
+          .min(3, "Dois contenir plus de 3 caractéres !")
+          .max(20, "Dois contenir au maximum 20 caractéres !"),
+      email: yup
+          .string()
+          .required("Un mail est nécessaire!")
+          .email("Email invalid!")
+          .max(50, "Dois contenir au maximum 20 caractéres!"),
+      password: yup
+          .string()
+          .required("Mot de passe nécessaire !")
+          .min(8, "Dois contenir au moins 8 caractéres !")
+          .max(40, "Dois contenir au maximum 20 caractéres!"),
+    });
+
+    return {
+      successful: false,
+      loading: false,
+      message: "",
+      schema,
+      email: '',
+      password: '',
+      Username:'',
+
+    };
+  },
+  methods: {
+    async submit() {
+      try {
+        const response = await axios.post('http://localhost:3000/login', {
+          Username: this.Username,
+          email: this.email,
+          password: this.password,
+
+        });
+
+        // La réponse doit contenir un jeton d'authentification si l'authentification réussit
+        const token = response.data.token;
+
+        // Stocker le jeton d'authentification dans le stockage local
+        localStorage.setItem('token', token);
+        console.log(token)
+
+        // Rediriger l'utilisateur vers une page protégée
+        this.$router.push('/profil');
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
+};
+</script>
 
 
