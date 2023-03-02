@@ -128,7 +128,7 @@ export default {
 }
 .content_user{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .avatar{
   margin-left: 20px;

@@ -1,17 +1,17 @@
 <template>
 
-  <v-col cols="10" sm="10" md="8" xs="12" class="demande">
+  <v-col cols="12" sm="12" md="8" xs="12" class="demande">
   <v-card class="mx-auto" >
     <v-card-text style="text-align:center;">
       <span class="titre">Demande de gardinnage</span>
 
     </v-card-text>
         <v-sheet class="cardform">
-          <v-form @submit.prevent>
+          <v-form @submit.prevent="onSubmit" enctype="multipart/form-data">
             <v-card-text>
               <v-container class="check">
-                <v-checkbox label="Botaniste"></v-checkbox>
-                <v-checkbox label="Utilisateur"></v-checkbox>
+                <v-checkbox label="Botaniste" v-model="botaniste"></v-checkbox>
+                <v-checkbox label="Utilisateur" v-model="users"></v-checkbox>
               </v-container>
             </v-card-text >
             <v-container class="form">
@@ -19,7 +19,7 @@
                   cols="12"
                   md="10"
               >
-                <v-text-field label="Adresse" prepend-icon="mdi-map-marker"></v-text-field>
+                <v-text-field label="Adresse" v-model="adresse" prepend-icon="mdi-map-marker"></v-text-field>
                 <v-file-input
                     v-model="files"
                     label="Sélectionner des photos"
@@ -27,6 +27,11 @@
                     multiple
                     @change="onFilesSelected"
                 ></v-file-input>
+                <v-container class="dispo">
+                <v-text-field class="deb" label="Date de début " prepend-icon="mdi-calendar"></v-text-field>
+                <v-text-field class="fin" label="Date de fin " prepend-icon="mdi-calendar"></v-text-field>
+                </v-container>
+
               </v-col>
 
                 <div class="photos">
@@ -48,6 +53,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 
 export default {
   name:"DemandeGardinnage",
@@ -59,12 +65,28 @@ export default {
     };
   },
   methods: {
-    onFilesSelected() {
-      // logique de traitement de la sélection de fichiers
-      this.files = this.files.map(file => {
-        file.url = URL.createObjectURL(file);
-        return file;
-      });
+
+    onSubmit() {
+      const formData = {
+        adresse: this.$refs.adresse.value,
+        photos: this.files,
+        description: this.$refs.description.value,
+            roles: {
+              botaniste: this.$refs.botaniste.checked,
+              users: this.$refs.utilisateur.checked,
+            }
+      };
+
+      axios.post('http://localhost:3000/annonce/:id', formData)
+          .then(response => {
+            console.log(response.data);
+          })
+          .catch(error => {
+            console.log(error);
+          });
+    },
+    onFilesSelected(event) {
+      this.files = event.target.files;
     }
   }
 
@@ -88,6 +110,10 @@ export default {
     width: 100px;
     height: 70px;
 
+  }
+  .dispo{
+    display:flex;
+    justify-content: space-between;
 
   }
 
@@ -144,10 +170,7 @@ export default {
   }
 
 @media (max-width: 	600px){
-  .demande{
-    margin-top:70px;
 
-  }
   .text{
     margin-left: 30px;
     width:250px;

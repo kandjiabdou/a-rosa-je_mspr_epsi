@@ -115,3 +115,10 @@ export default {
 };
 </script>
 
+<style scoped>
+.info {
+  width: 50em;
+
+
+}
+</style>

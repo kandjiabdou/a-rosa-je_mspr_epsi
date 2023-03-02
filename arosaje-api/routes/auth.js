@@ -17,7 +17,7 @@ router.post('/role', upload.array(), authController.role );
 router.get('/role', authController.getAllRole );
 
 router.get('/logout', authController.logout );
-// router.get('/getme', authController.userProfile );
-// router.get('/user/:id', singleUser );
+//router.get('/getme', authController.userProfile );
+ //router.get('/user/:id', singleUser );
 
 module.exports = router; // export to use in api.js

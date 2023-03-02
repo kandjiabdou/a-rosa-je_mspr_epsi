@@ -45,14 +45,9 @@ const signup = async (req, res, next)=>{
     try {
         mdpHash = await bcrypt.hash(rBody.mdp, 10);
         const user = await prisma.User.create({
-            data: {
-                prenom : rBody.prenom, nom : rBody.nom, email : rBody.email, mdp : mdpHash, telephone : rBody.telephone, role_user : rBody.role_user
-            }
+            data: { prenom : rBody.prenom, nom : rBody.nom, email : rBody.email, mdp : mdpHash}
         })
-        res.status(201).json({
-            success: true,
-            user
-        })
+        res.status(201).json({success: true, user})
     } catch (error) {
         console.log(error);
         return res.json(errorResponse("Erreur d'inscription", 400 ))
@@ -109,7 +104,7 @@ const genererToken = async (user, statusCode, res) =>{
     delete user["mdp"]
     return res.status(statusCode).cookie('token', token, options ).json({success: true, token, user})
 };
-const errorResponse = (status, message) => {
+const errorResponse = ( message, status) => {
     return {"status" : status, "message" : message};
 };
 
