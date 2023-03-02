@@ -37,7 +37,7 @@
                <v-row>
     <v-col
       v-for="n in 9"
-      :key="n"
+      :key="n"  
       class="d-flex child-flex"
       cols="4"
     >
