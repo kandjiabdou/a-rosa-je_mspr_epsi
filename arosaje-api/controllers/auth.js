@@ -104,7 +104,7 @@ const genererToken = async (user, statusCode, res) =>{
     delete user["mdp"]
     return res.status(statusCode).cookie('token', token, options ).json({success: true, token, user})
 };
-const errorResponse = (status, message) => {
+const errorResponse = ( message, status) => {
     return {"status" : status, "message" : message};
 };
 
