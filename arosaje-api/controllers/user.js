@@ -21,6 +21,20 @@ const singleUser = async (req, res, next) => {
     })
 };
 
+const udateUser = async (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
+    const rBody = req.body
+
+    const updateMdp = await prisma.user.update({
+        where: {id_user: parseInt(rBody.idUser)},
+        data: {ville: rBody.ville, code_postale : rBody.code_postale, nom_rue : rBody.nom_rue, nomero_rue : rBody.nomero_rue, telephone : rBody.telephone}
+    })
+    res.status(200).json({
+        success: true,
+        updateMdp
+    })
+};
+
 const getAllUser = async (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*")
     const users = await prisma.User.findMany({
@@ -76,5 +90,6 @@ const errorResponse = (status, message) => {
 module.exports = {
     getAllUser,
     singleUser,
-    udateMdp
+    udateMdp,
+    udateUser
 };

@@ -18,17 +18,23 @@ model User {
   prenom       String
   nom          String
   email        String        @unique
-  telephone    String? @unique
+  telephone    String?       @unique
   nomero_rue   String?
-  nom_rue   String?
-  noom   String?
+  nom_rue      String?
+  noom         String?
   code_postale String?
   ville        String?
   mdp          String
   flag         Int           @default(1)
-  role_user    String @default("user_lambda")
+  role_user    String        @default("user_lambda")
   role         Role          @relation(fields: [role_user], references: [nom])
   avatar       String        @default("/images/avatar/user-default.png")
+  otp_enabled  Boolean       @default(false)
+  otp_verified Boolean       @default(false)
+  otp_ascii    String?
+  otp_hex      String?
+  otp_base32   String?
+  otp_auth_url String?
   botanistes   Botaniste[]
   user_lambda  User_lambda[]
   annonces     Annonce[]
