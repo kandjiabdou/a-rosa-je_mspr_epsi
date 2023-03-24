@@ -3,8 +3,7 @@
     <div class="bloc">
 
       <div class="form">
-        <img src="https://e7.pngegg.com/pngimages/293/425/png-clipart-natural-environment-plant-%E4%B8%80%E5%80%8B%E6%96%B0%E4%B8%96%E7%95%8C-%E5%96%9A%E9%86%92%E5%85%A7%E5%9C%A8%E7%9A%84%E5%8A%9B%E9%87%8F-orchids-soil-natural-environment-leaf-logo.png" alt="logoaro"/>
-
+        <img src="https://media.istockphoto.com/id/536037199/fr/vectoriel/main-tenant-plante-logo-concept-de-croissance-vector-illustration.jpg?s=612x612&w=0&k=20&c=4H35vhMOuQ90StwU-d7WXmFhrqKfQH5AfKTjrJHlaXo=" alt="logo"/>
 
       <form  @submit.prevent="onSubmit" :validation-schema="schema" >
         <div class="form-group" >
@@ -19,12 +18,13 @@
           <ErrorMessage name="password" class="error-feedback" />
         </div>
 
-        <div class="form-group">
-          <button class="btnc  btn-block" type="submit">
 
-            <span>Login</span>
+        <div class="form-group">
+          <button class="btnc  btn-block" type="submit"  onclick="window.location.href = '/auth2';" >
+
+            <span>Connexion</span>
           </button>
-         <br><a href="#"> Mot de passe oublié ?</a>
+         <br><a class="text1" href="#"> Mot de passe oublié ?</a>
         </div>
 
         <div class="form-group">
@@ -38,7 +38,7 @@
 
           <div class="bloci">
 
-            <p>Vous avez déja un compte connectez-vous pour accéder à votre profil</p>
+            <p>Vous n'avez pas de compte inscrivez-vous pour accéder à nos services</p>
             <div class="mybtn">
               <button  onclick="window.location.href = '/register';" class="btn  btn-block">
             <span
@@ -205,7 +205,16 @@ margin-left:50px;
     height:50%;
     background-color: forestgreen;
   }
+.text1 a{
+  color:white;
 
+}
+
+  img {
+    width: 100px;
+    height: 100px;
+    margin-left: 150px;
+  }
 }
 
 

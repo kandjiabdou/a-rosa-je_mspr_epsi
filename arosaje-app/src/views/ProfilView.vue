@@ -47,7 +47,6 @@
         </v-row>
       </v-container>
     </v-container>
-    <MesMessage/>
   </v-container>
 
 
@@ -56,7 +55,6 @@
 
 <script>
 import CommentCom from '@/components/CommentCom.vue'
-import MesMessage from '@/views/MesMessages'
 import myContentDrawer from "@/components/DrawerComponent.vue"
 import DrawerMobile from "@/components/DrawerMobile.vue"
 import axios from 'axios';
@@ -64,7 +62,7 @@ import axios from 'axios';
 
 export default {
 
-  components: {MesMessage,CommentCom,myContentDrawer,DrawerMobile},
+  components: {CommentCom,myContentDrawer,DrawerMobile},
 
   name:"MyDataApi",
   props: ['post'],

@@ -20,10 +20,17 @@ const routes = [
     component: () => import('../views/ProfilView.vue')
   },
 
+
+
   {
     path: '/login',
     name: "LoginComponent",
     component: () => import('../views/LoginComponent.vue')
+  },
+  {
+    path: '/auth2',
+    name: "DoubleAuth",
+    component: () => import('../views/doubleAuth.vue')
   },
   {
     path: '/register',

@@ -3,10 +3,11 @@
     <div class="bloc">
       <div class="form">
         <img
-          src="https://e7.pngegg.com/pngimages/293/425/png-clipart-natural-environment-plant-%E4%B8%80%E5%80%8B%E6%96%B0%E4%B8%96%E7%95%8C-%E5%96%9A%E9%86%92%E5%85%A7%E5%9C%A8%E7%9A%84%E5%8A%9B%E9%87%8F-orchids-soil-natural-environment-leaf-logo.png"
+          src="https://media.istockphoto.com/id/536037199/fr/vectoriel/main-tenant-plante-logo-concept-de-croissance-vector-illustration.jpg?s=612x612&w=0&k=20&c=4H35vhMOuQ90StwU-d7WXmFhrqKfQH5AfKTjrJHlaXo="
           alt="logoaro" />
         <form @submit.prevent="submit" :validation-schema="schema">
           <div v-if="!successful">
+            <div class="name">
             <div class="form-group">
               <label for="username">Nom</label>
               <Field name="name" type="text" v-model="nom" class="form-control" />
@@ -17,6 +18,8 @@
               <Field name="prenom" type="text" v-model="prenom" class="form-control" />
               <ErrorMessage name="prenom" class="error-feedback" />
             </div>
+            </div>
+            <div class="name">
             <div class="form-group">
               <label for="email">Email</label>
               <Field name="email" type="email" v-model="email" class="form-control" />
@@ -27,9 +30,17 @@
               <Field name="password" type="password" class="form-control" v-model="mdp" />
               <ErrorMessage name="password" class="error-feedback" />
             </div>
+              </div>
+            <div class="politic">
 
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-block">
+            <label class="text-grey-600 cursor-pointer text-xs text-justify">
+              <input type="checkbox" name="terms" required="required" value="1" tabindex="5">
+              J'ai lu et accepté les Conditions Générales d'Utilisation <br>ainsi que la Politique de confidentialité.<br>
+            </label>
+            </div>
+
+            <div class="submit">
+              <button type="submit" class="btn  btn-block">
 
                 Inscription
               </button>
@@ -37,7 +48,6 @@
           </div>
         </form>
       </div>
-
       <div class="text">
         <div class="bloci">
           <p>
@@ -56,6 +66,7 @@
           {{ message }}
         </div>
       </div>
+
     </div>
   </div>
 </template>
@@ -136,28 +147,38 @@ export default {
 
 
 <style>
+
 .containnerform {
   margin: auto;
-  width: 50%;
-  height: 80%;
+  width: 70%;
+  height: 50%;
+}
+.politic{
+  margin-top:30px;
+  margin-bottom: 20px;
 }
 
 .bloc {
-  margin-top: 5px;
+  margin-top: 50px;
   display: flex;
   justify-content: space-between;
   box-shadow: 10px 5px 5px gray;
-  height: 550px;
+  height: 500px;
 }
 
 .form {
   margin-right: 70px !important;
-  width: 550px;
+  width: 500px;
   margin-top: 20px;
+}
+.name{
+  display:flex;
+  justify-content: space-around;
 }
 
 .text {
-  width: 80%;
+
+  width: 35%;
   height: 100%;
   background-color: forestgreen;
 }
@@ -178,12 +199,13 @@ export default {
 .form img {
   width: 100px;
   height: 100px;
-  margin-left: 80px;
+  margin-left: 150px;
 }
 
 .text p {
   color: white;
 }
+
 
 .titre {
   margin-left: 50px;
@@ -195,6 +217,13 @@ a {
 
 a :hover {
   color: forestgreen;
+}
+.btn{
+  top:20px;
+  width:200px;
+  margin:auto;
+  background-color: forestgreen;
+
 }
 
 .btnc {
@@ -226,7 +255,7 @@ a :hover {
 
   .text {
     width: 100%;
-    height: 50%;
+    height: 30%;
     background-color: forestgreen;
   }
 

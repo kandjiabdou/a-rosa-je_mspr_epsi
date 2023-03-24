@@ -9,7 +9,7 @@
       >
         <v-list  class="drawer">
 
-            <img src="public/assets/logo_aro.png" alt="logo1"/>
+            <img src="https://media.istockphoto.com/id/536037199/fr/vectoriel/main-tenant-plante-logo-concept-de-croissance-vector-illustration.jpg?s=612x612&w=0&k=20&c=4H35vhMOuQ90StwU-d7WXmFhrqKfQH5AfKTjrJHlaXo=" alt="logo1"/>
 
             <v-list-item v-for="(item, i) in items" :to="item.action" :key="i">
 
@@ -87,5 +87,11 @@
 }
 .drawer{
   margin-top: 60px;
+}
+.drawer img{
+  margin-left:30%;
+  width: 100px;
+  height: 100px;
+
 }
 </style>
