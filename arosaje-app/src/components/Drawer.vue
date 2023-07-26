@@ -7,9 +7,9 @@
           <v-list-item-icon>
             <v-icon>mdi-{{ item.icon }}</v-icon>
           </v-list-item-icon>
-          <v-list-item-content>
+          <v-list6-item-content>
             <v-list-item-title > {{item.text}}</v-list-item-title>
-          </v-list-item-content>
+          </v-list6-item-content>
         </v-list-item>
       </v-list-item-group>
     </v-list>
@@ -41,7 +41,7 @@ export default {
         },
         { icon: "account", text: this.$t("drawer.compte"), action: "/compte" },
         { icon: "logout", text: this.$t("drawer.logout"), action: "/logout" },
-        
+
       ],
     };
   },

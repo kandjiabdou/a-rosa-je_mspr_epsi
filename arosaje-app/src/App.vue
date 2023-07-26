@@ -23,17 +23,17 @@
 
       <div v-if="!currentUser" class="navbar-nav ml-auto">
         <ul>
-          <li class="nav-item">
+          <li  class="nav-item">
             <router-link to="/home" class="nav-link">
               <i class="fas fa-home"></i> Home
             </router-link>
           </li>
-        <li class="nav-item">
+        <li class="nav-item" v-if="$route.path !== '/profil'">
           <router-link to="/login" class="nav-link">
             <i class="fas fa-user-alt"></i>   Connexion
           </router-link>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" v-if="$route.path !== '/profil'">
           <router-link to="/register" class="nav-link">
            <i class="fas fa-sign-in-alt"></i>  Inscription
           </router-link>
@@ -78,6 +78,16 @@ export default defineComponent({
 </script>
 
 <style>
+#app{
+  margin:0;
+  padding: 0;
+
+
+}
+.container{
+  margin:0 !important;
+  padding:0 !important;
+}
 
 
 

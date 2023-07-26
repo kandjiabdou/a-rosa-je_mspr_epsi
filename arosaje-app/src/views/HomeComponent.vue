@@ -1,68 +1,57 @@
 <template>
+  <div class="full-screen">
 
-<v-carousel class="fullscreen">
-<v-carousel-item
-    src="https://images.pexels.com/photos/8512675/pexels-photo-8512675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-    cover
-></v-carousel-item>
 
-<v-carousel-item
-    src="https://images.pexels.com/photos/7728874/pexels-photo-7728874.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-    cover
-></v-carousel-item>
 
-<v-carousel-item
-    src="https://images.pexels.com/photos/8514583/pexels-photo-8514583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-    cover
-></v-carousel-item>
-</v-carousel>
-<v-container>
-  <v-card title="Arosaje" subtitle="Subtitle" height="200" color="green"  width="500" class="pa-6">
-    L’entreprise “A’rosa-je” aide les particuliers à prendre soin de leurs plantes.
-Fondée en 1984 elle a tout d’abord été composée d’une petite équipe de botanistes dans une seule ville et est maintenant composée de plus de 1500 botanistes répartis sur toute la France qui rendent service aux propriétaires de plantes de deux façons :
-- En allant garder leurs plantes lorsque les propriétaires sont absents
-- En prodiguant des conseils d’entretien afin que les propriétaires s’occupent de mieux en mieux de leurs plantes
+    <v-container class="top">
+      <v-row>
 
-  </v-card>
 
-  <v-card title="Card title" subtitle="Subtitle" text="" color="green"  width="500" height="200" class="pa-6">
-    <v-card-actions>
-      <v-btn>Click me</v-btn>
-    </v-card-actions>
-  </v-card>
-</v-container>
 
+        <v-col cols="6">
+
+          <h1 class="white--text">
+            A'rosa-je</h1>
+          <p class="grey--text">
+            Votre partenaire botanique depuis 1984. Garde de plantes et conseils personnalisés pour leur entretien. Nouvelle application pour répondre à la demande croissante. Confiez-nous vos plantes, elles seront entre de bonnes mains.
+            Chez A'rosa-je, nous croyons que chaque plante mérite une attention exceptionnelle. Confiez-nous vos trésors verts et découvrez l'expertise de nos passionnés de botanique. Bienvenue dans notre univers, où vos plantes seront choyées comme jamais auparavant !
+          </p>
+          <v-btn tile color="#00000" dark> A propos </v-btn>
+        </v-col>
+
+      </v-row>
+    </v-container>
+  </div>
 </template>
+
 <script>
-import { useLocale } from 'vuetify'
+
 
 export default {
-  name: "AboutComponent",
-  setup () {
-    const { t } = useLocale()
+  name: "HomeComponent",
+  data: () => ({
+    icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
+  }),
 
-    return {
-      t
-    }
-  }
 };
 </script>
-<style>
+<style scoped>
 
-.fullscreen {
-  height: 100%;
-  width: 100%;
+.full-screen{
+  margin: 0;
+  Padding:0;
+  background-image: url('https://images.pexels.com/photos/8512668/pexels-photo-8512668.jpeg?auto=compress&cs=tinysrgb&w=600');
+  width: 1920px; /* La largeur de l'image est égale à la largeur du conteneur */
+  height: 600px; /* La hauteur de l'image est égale à la hauteur du conteneur */
+  background-size: cover; /* L'image de fond s'ajuste pour remplir le conteneur sans se répéter */
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
-
-
-.desc{
+.top {
+  margin-top: 180px;
+}
+.grey--text{
   color:white;
-  display:flex;
-  justify-content: space-between;
-  padding-right: 50px;
 }
-.pa-6{
-  margin-left: 40px;
-}
-
+.white--text{  color:white;}
 </style>

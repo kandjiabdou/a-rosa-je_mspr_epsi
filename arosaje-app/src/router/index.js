@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeComponent from "@/views/HomeComponent.vue"
 import monCompte from '../views/MoncompteView.vue'
 import GardiennageView from '@/views/GardiennageView.vue'
+import ChatsPage  from '../views/UserMessage.vue'
 
 const routes = [
   {
@@ -51,6 +52,12 @@ const routes = [
     path: '/gardiennage',
     name: 'gariennageView',
     component: GardiennageView
+
+  },
+  {
+    path: '/message',
+    name: 'gariennageView',
+    component: ChatsPage
 
   }
 ]

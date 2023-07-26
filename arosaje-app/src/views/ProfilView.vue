@@ -10,7 +10,7 @@
     <v-container  :style="{background: $vuetify.theme.themes.dark}" class="post">
       <v-container :key="index" v-for="(item, index) in posts" fluid >
         <v-row>
-          <v-col cols="12" sm="12" md="12" id="actu">
+          <v-col cols="12" sm="10" md="10" id="actu">
 
 
               <v-row  class="post">
